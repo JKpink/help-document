@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>blockproc</title>
+    <title>colorThreshold</title>
     <style>
         
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -291,37 +291,18 @@ img {
 }
 
     </style>
-    
 </head>
 <body>
-    <h2>blockproc</h2>
-<p>图像的非重复块处理 </p>
+    <h2>colorThreshold</h2>
+<p>对彩色图像进行阈值化处理</p>
 <h2>简介</h2>
-<p><a href="#function1"> <code>B = blockproc(A, [m n], fun)</code></a></p>
+<p><a href="#function1"> <code>colorThresholder</code></a></p>
 <h2>用法</h2>
 <p><a id="function1"></a>
-<a href="#Q1">B</a> = blockproc(<a href="#Q2">A</a>, <a href="#Q3">[m n]</a>, <a href="#Q4">fun</a>)  通过对大小为 <a href="#Q3">[m n]</a> 的每个非重叠图像块应用 <a href="#Q4">fun</a> 函数并将结果串联到输出图像 <a href="#Q1">B</a> 中，来处理输入图像 <a href="#Q2">A</a>。  </p>
-<h2>参数说明</h2>
-<h3>输入参数</h3>
-<p><strong><a id="Q2"></a>A — 要处理的图像</strong>  <br />
-数值数组  </p>
-<p>要处理的图像，指定为数值数组。  </p>
-<p><strong><a id="Q3"></a>[m n] — 图像块大小</strong> <br />
-二元素向量  </p>
-<p>图像块大小，指定为二元素向量。m 是图像块中的行数，n 是列数。  </p>
-<p><strong><a id="Q4"></a>fun — 函数句柄</strong> <br />
-句柄  </p>
-<p>函数句柄，指定为句柄。返回数组、向量或标量。如果 fun 返回空值，则 blockproc 不会生成任何输出，并且在处理完所有图像块后返回空值。  </p>
-<h3>输出参数</h3>
-<p><strong><a id="Q1"></a>B — 已处理图像</strong>  <br />
-数值数组  </p>
-<p>已处理的图像，以数值数组形式返回。  </p>
+colorThresholder 开启色彩分割器，通过切换颜色空间，为彩色图像生成分割掩膜。</p>
 <h2>版本历史</h2>
-<p>在北太天元图像处理工具箱 V3.0 推出  </p>
+<p>在北太天元图像处理工具箱 V3.0 推出</p>
 <h2>相关主题</h2>
-<p><a href="../blockedImage/blockedImage.html">blockedImage</a> | <a 
-href="../colfilt/colfilt.html">colfilt</a> | <a 
-href="../ImageAdapter/ImageAdapter.html">ImageAdapter</a> | <a 
-href="../nlfilter/nlfilter.html">nlfilter</a></p>
+<p><a href="../imcontrast/imcontrast.html">imcontrast</a> </p>
 </body>
 </html>

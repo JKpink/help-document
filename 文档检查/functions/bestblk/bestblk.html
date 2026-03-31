@@ -295,38 +295,32 @@ img {
 </head>
 <body>
     <h2>bestblk</h2>
-<p>确定块处理的最优块尺寸</p>
+<p>为块处理确定最优块大小</p>
 <h2>简介</h2>
-<p><a href="#function1"><code>siz = bestblk([M N],k)</code></a><br />
-<a href="#function2"><code>[m,n] = bestblk([M N],k)</code></a></p>
+<p><a href="#function1"> <code>size = bestblk([M N], k)</code> </a></p>
 <h2>用法</h2>
-<p><a id="function1"></a></p>
-<p><a href="#Q4">siz</a> = bestblk(<a href="#Q2">[M N]</a>, <a href="#Q3">k</a>) 返回针对 M 行 N 列图像进行块处理的最优块尺寸。该最优块尺寸可最大限度减少外围不完整块所需的填充操作。参数 <code>k</code> 用于指定块的最大行维度和列维度。</p>
-<p><a id="function2"></a></p>
-<p><a href="#Q5">[m, n]</a> = bestblk(<a href="#Q2">[M N]</a>, <a href="#Q3">k</a>) 分别在 <code>m</code> 和 <code>n</code> 中返回该块的行维度和列维度。</p>
+<p><a id="function1"></a>
+<a href="#Q1">size</a> = bestblk(<a href="#Q2">[M N]</a>, <a href="#Q3">k</a>)针对尺寸为 <code>M</code> 行 <code>N</code> 列的图像，计算块处理时的最优块大小并返回 2 元素行向量 <a href="#Q1"><code>size</code></a> 。最优块大小的判定标准是最小化图像边缘 “部分块” 所需的填充量，<a href="#Q3"><code>k</code></a> 用于指定块的最大行 / 列维度上限。</p>
 <h2>参数说明</h2>
 <h3>输入参数</h3>
-<p><strong><a id="Q2"></a> [m, n] — 块大小</strong><br />
-正整数的 2 元素向量</p>
-<p>块大小，指定为正整数的 2 元素向量。m 是行数，n 是每个块中的列数。<code>m×n</code> 必须等于 <code>B</code> 的行数。</p>
-<p><strong>数据类型：</strong>  <code>double</code>  </p>
-<p><strong><a id="Q3"></a> k — 块的最大行数或列数</strong><br />
+<p><strong><a id="Q2"></a>[M N] — 图像尺寸</strong><br />
+2 元素正整数向量</p>
+<p>用于指定待处理图像的尺寸，其中 M 为图像的行数，N 为图像的列数；
+仅支持由正整数构成的 2 元素向量。</p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong><a id="Q3"></a>k — 块的最大行 / 列维度</strong><br />
 正整数</p>
-<p>块的最大行数或列数，指定为一个正整数（默认为100）。</p>
-<p><strong>数据类型：</strong>  <code>double</code>  </p>
-<h3>输出参数</h3>
-<p><strong><a id="Q4"></a> six — 最优块尺寸</strong><br />
-二维数值行向量</p>
-<p>最优块尺寸，以二维数值行向量的形式返回。<code>siz</code> 等价于 <code>[m n]</code>。</p>
-<p><strong><a id="Q5"></a> [m,n] — 块的最优行数或列数</strong><br />
-数值标量</p>
-<p>块的最优行数或列数，以数值标量的形式返回。</p>
+<p>用于限定块的行维度和列维度的最大取值；
+函数会在该上限范围内寻找使填充量最小的最优块大小。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<h2>输出参数</h2>
+<p><strong><a id="Q1"></a>size — 最优块大小</strong><br />
+2 元素数值行向量</p>
+<p>最优块大小，以 2 元素行向量形式返回：第一个元素为块的最优行维度，第二个元素为块的最优列维度，等价于 [m n]。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
 <h2>版本历史</h2>
-<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<p>在北太天元图像处理工具箱 V3.0 推出</p>
 <h2>相关主题</h2>
-<p><a href="../blockproc/blockproc.html">blockproc</a> | <a 
-href="../colfilt/colfilt.html">colfilt</a> | <a 
-href="../im2col/im2col.html">im2col</a> | <a 
-href="../nlfilter/nlfilter.html">nlfilter</a></p>
+<p><a href="../blockproc/blockproc.html">blockproc</a></p>
 </body>
 </html>

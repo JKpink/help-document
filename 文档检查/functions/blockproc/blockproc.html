@@ -294,90 +294,34 @@ img {
     
 </head>
 <body>
-    <h2>grabcut</h2>
-<p>使用图割算法将图像分割为前景和背景</p>
+    <h2>blockproc</h2>
+<p>图像的非重复块处理 </p>
 <h2>简介</h2>
-<p><a href="#function1"><code>BW = grabcut(A, L, ROI)</code></a><br />
-<a href="#function2"><code>BW = grabcut(A, L, ROI, foremask, backmask)</code></a><br />
-<a href="#function3"><code>BW = grabcut(A, L, ROI, foreind, backind)</code></a><br />
-<a href="#function4"><code>BW = grabcut(___,Name,Value)</code></a></p>
+<p><a href="#function1"> <code>B = blockproc(A, [m n], fun)</code></a></p>
 <h2>用法</h2>
 <p><a id="function1"></a>
-<a href="#P1">BW</a>  = grabcut(<a href="#Q1">A</a>, <a href="#Q2">L</a>, <a href="#Q3">ROI</a>) 将图像 <code>A</code> 分割为前景和背景区域。标签矩阵 <code>L</code> 指定图像的子区域。<code>ROI</code> 是用于指定初始感兴趣区域的逻辑掩膜。</p>
-<p><a id="function2"></a>
-<a href="#P1">BW</a>  = grabcut(<a href="#Q1">A</a>, <a href="#Q2">L</a>, <a href="#Q3">ROI</a>, <a href="Q4">foremask</a>, <a href="#Q5">backmask</a>) 对图像 <code>A</code> 进行分割，其中 <code>foremask</code> 和 <code>backmask</code> 分别为指定图像中前景和背景像素的掩膜。</p>
-<p><a id="function4"></a>
-<a href="#P4">BW</a> = grabcut(___, Name, Value) 使用名称-值参数控制分割的各个方面。</p>
+<a href="#Q1">B</a> = blockproc(<a href="#Q2">A</a>, <a href="#Q3">[m n]</a>, <a href="#Q4">fun</a>)  通过对大小为 <a href="#Q3">[m n]</a> 的每个非重叠图像块应用 <a href="#Q4">fun</a> 函数并将结果串联到输出图像 <a href="#Q1">B</a> 中，来处理输入图像 <a href="#Q2">A</a>。  </p>
 <h2>参数说明</h2>
 <h3>输入参数</h3>
-<p><strong><a id="Q1"></a> A — 待分割图像</strong><br />
-2-D 灰度图像 | 2-D 真彩色图像 | 3-D 灰度体数据</p>
-<p>输入图像或体数据，指定为 2-D 灰度图像、2-D 真彩色图像或 3-D 灰度体数据。仅灰度图像可为 <code>int16</code> 数据类型。</p>
-<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int16</code> | <code>uint8</code> | <code>uint16</code></p>
-<p><strong><a id="Q2"></a> L — 标签矩阵</strong><br />
-数值数组</p>
-<p>标签矩阵，指定为数值数组。</p>
-<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
-<p><strong><a id="Q3"></a> ROI — 感兴趣区域</strong><br />
-逻辑数组</p>
-<p>感兴趣区域，指定为逻辑数组。所有定义感兴趣区域的像素值为 <code>true</code>。</p>
-<p><strong>数据类型：</strong> <code>logical</code></p>
-<p><strong><a id="Q4"></a> foremask — 前景掩膜</strong><br />
-逻辑数组</p>
-<p>前景掩膜，指定为逻辑数组。</p>
-<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
-<p><strong><a id="Q5"></a> backmask — 背景掩膜</strong><br />
-逻辑数组</p>
-<p>背景掩膜，指定为逻辑数组。</p>
-<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
-<h3>名称-值参数</h3>
-<p>使用名称-值参数指定可选的参数对。参数名必须为字符向量，参数值为对应值。名称-值参数必须出现在其他参数之后，但各对的顺序不限。</p>
-<p><strong><a id="Q8"></a> Connectivity — 连通组件的连通性</strong><br />
-<code>4</code> | <code>8</code> | <code>6</code> | <code>18</code> | <code>26</code></p>
-<p>连通组件的连通性，指定为以下值之一。对于 2-D 图像，默认连通性为 <code>8</code>；</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>4</code></td>
-<td>像素若边缘相接则视为连通。两个相邻像素若水平或垂直方向相连，则属于同一对象。</td>
-</tr>
-<tr>
-<td><code>8</code></td>
-<td>像素若边缘或角点相接则视为连通。两个相邻像素若水平、垂直或对角线方向相连，则属于同一对象。</td>
-</tr>
-</tbody>
-</table>
-<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
-<p><strong><a id="Q9"></a> MaximumIterations — 最大迭代次数</strong><br />
-<code>5</code> （默认） | 正标量</p>
-<p>算法执行的最大迭代次数。算法可能在达到最大迭代次数之前收敛到解。</p>
-<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<p><strong><a id="Q2"></a>A — 要处理的图像</strong>  <br />
+数值数组  </p>
+<p>要处理的图像，指定为数值数组。  </p>
+<p><strong><a id="Q3"></a>[m n] — 图像块大小</strong> <br />
+二元素向量  </p>
+<p>图像块大小，指定为二元素向量。m 是图像块中的行数，n 是列数。  </p>
+<p><strong><a id="Q4"></a>fun — 函数句柄</strong> <br />
+句柄  </p>
+<p>函数句柄，指定为句柄。返回数组、向量或标量。如果 fun 返回空值，则 blockproc 不会生成任何输出，并且在处理完所有图像块后返回空值。  </p>
 <h3>输出参数</h3>
-<p><strong><a id="P1"></a> BW — 分割图像</strong><br />
-逻辑数组</p>
-<p>分割后的图像，以与标签矩阵 <code>L</code> 相同大小的二值图像形式返回。</p>
-<h2>提示</h2>
-<ul>
-<li>对于 <code>double</code> 和 <code>single</code> 类型图像，<code>grabcut</code> 假定图像值范围为 [0, 1]。对于 <code>uint16</code>、<code>int16</code> 和 <code>uint8</code> 类型图像，假定范围为该数据类型对应的完整范围。</li>
-<li>对于灰度图像，<code>L</code>、<code>foremask</code> 和 <code>backmask</code> 的大小必须与图像 <code>A</code> 的大小一致。对于彩色图像和多通道图像，<code>L</code>、<code>foremask</code> 和 <code>backmask</code> 必须是 2-D 数组，其前两维与图像 <code>A</code> 的前两维相同。</li>
-</ul>
-<h2>算法</h2>
-<ul>
-<li>算法将 ROI 掩膜外部的所有子区域视为背景。为获得最优分割，需确保待分割对象完全包含在 ROI 内，并由少量背景像素包围。</li>
-<li>标签矩阵中的同一子区域不可同时标记为前景和背景。若某子区域同时包含前景和背景像素，算法将该区域视为未标记。</li>
-<li>算法假定感兴趣区域外部的所有子区域属于背景。将这些子区域标记为前景或背景对最终分割结果无影响。</li>
-</ul>
-<h2>参考文献</h2>
-<p>[1] Rother C, Kolmogorov V, Blake A. GrabCut - Interactive Foreground Extraction using Iterated Graph Cuts. ACM Transactions on Graphics (SIGGRAPH). 2004;23(3):309–314.</p>
+<p><strong><a id="Q1"></a>B — 已处理图像</strong>  <br />
+数值数组  </p>
+<p>已处理的图像，以数值数组形式返回。  </p>
 <h2>版本历史</h2>
 <p>在北太天元图像处理工具箱 V3.0 推出  </p>
 <h2>相关主题</h2>
-<p><a href="../imagesegmenter/imagesegmenter.html">Image Segmenter</a> | <a href="../segmentAnythingModel/segmentAnythingModel.html">segmentAnythingModel</a> | <a href="../superpixels/superpixels.html">superpixels</a> | <a href="../lazysnapping/lazysnapping.html">lazysnapping</a> | <a href="../watershed/watershed.html">watershed</a></p>
+<p><a href="../blockedImage/blockedImage.html">blockedImage</a> | <a 
+href="../colfilt/colfilt.html">colfilt</a> | <a 
+href="../ImageAdapter/ImageAdapter.html">ImageAdapter</a> | <a 
+href="../nlfilter/nlfilter.html">nlfilter</a></p>
 </body>
 </html>

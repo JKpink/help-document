@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imtranslate</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imtranslate</h2>
+<p>平移图像</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>B = imtranslate(A, translation)</code></a><br />
+<a href="#function2"><code>___ = imtranslate(___, method)</code></a><br />
+<a href="#function3"><code>___ = imtranslate(___, Name, Value)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a> <a href="#P1">B</a> = imtranslate(<a href="#Q1">A</a>, <a href="#Q2">translation</a>) 根据 <code>translation</code> 中指定的二维或三维平移向量对图像 <code>A</code> 进行平移。如果 <code>A</code> 是三维图像且 <code>translation</code> 是二维向量，则 <code>imtranslate</code> 会将二维平移应用于 <code>A</code> 的每个平面。<br />
+<a id="function2"></a> ___ = imtranslate(___, <a href="#Q3">method</a>) 使用 <code>method</code> 指定的插值方法对图像 <code>A</code> 进行平移。<br />
+<a id="function3"></a> ___ = imtranslate(___, <a href="#Q4">Name, Value</a>) 对输入图像进行平移，并使用名称-值参量来控制平移的各个方面。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> A — 需要平移的图像</strong><br />
+数值数组 | 逻辑数组</p>
+<p>需要平移的图像，指定为数值数组或逻辑数组。</p>
+<p><strong>数据类型：</strong><code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>logical</code></p>
+<p><strong><a id="Q2"></a> translation — 平移向量</strong><br />
+2 元素数值向量 | 3 元素数值向量</p>
+<p>平移向量，指定为 2 元素数值向量 (Tx Ty) 或 3 元素数值向量 (Tx Ty Tz)。值可以是小数。</p>
+<p><strong>数据类型：</strong><code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> </p>
+<p><strong><a id="Q3"></a> method — 插值方法</strong><br />
+<code>"bilinear"</code>(默认) | <code>"nearest"</code> | <code>"bicubic"</code></p>
+<p>插值方法，指定为 <code>"bilinear"</code> (默认)、<code>"nearest"</code> 或 <code>"bicubic"</code>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>"nearest"</code></td>
+<td style="text-align: left;">最近邻点插值。赋给输出像素的值就是输入点所在像素的值。不考虑其他像素。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"bilinear"</code></td>
+<td style="text-align: left;">双线性插值。输出像素值是最近的 2 × 2 邻域中像素的加权平均值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"bicubic"</code></td>
+<td style="text-align: left;">双三次插值。输出像素值是最近的 4 × 4 邻域中像素的加权平均值。（注意：双三次插值可能生成在原始范围之外的像素值。）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong><code>char</code> | <code>string</code> |</p>
+<h3><a id="Q4"></a> 名称-值参数</h3>
+<p>将可选的参量对组指定为 Name1, Value1, ... , NameN, ValueN，其中 <code>Name</code> 是参量名称，<code>Value</code> 是对应的值。名称-值参量必须出现在其他参量后，但对各个参量对组的顺序没有要求。</p>
+<p>示例：mriVolumeTranslated = imtranslate(mriVolume, [40 30 0], "OutputView", "full");<br />
+<strong>OutputView — 输出世界范围</strong><br />
+<code>"same"</code>(默认) | <code>"full"</code></p>
+<p>输出世界坐标系范围，指定为以下值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>"same"</code></td>
+<td style="text-align: left;">输出世界系范围与输入图像相同（默认）。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"full"</code></td>
+<td style="text-align: left;">输出世界坐标系范围是包含输入图像和平移后输出图像的边界矩形。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong><code>char</code> | <code>string</code></p>
+<p><strong>FillValues — 填充值</strong><br />
+数值标量 | 数值数组</p>
+<p>用于输入图像以外的输出像素的填充值，指定为表中的值之一。如果输出像素对应的位置经逆变换后完全处于输入边界之外，<code>Imtranslate</code> 对输出像素使用填充值。<br />
+数值和逻辑图像的默认填充值为 0。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>图像类型</strong></th>
+<th style="text-align: left;"><strong>变换维度</strong></th>
+<th style="text-align: left;"><strong>填充值的格式</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">二维灰度或逻辑图像</td>
+<td style="text-align: left;">二维</td>
+<td style="text-align: left;">- 数值标量</td>
+</tr>
+<tr>
+<td style="text-align: left;">二维彩色图像或二维多光谱图像</td>
+<td style="text-align: left;">二维</td>
+<td style="text-align: left;">- 数值标量 <br> - 包含 c 个元素的数值向量，为 c 个通道中的每个通道指定一个填充值。对于彩色图像，通道数 c 为 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">包含 p 个二维图像的序列</td>
+<td style="text-align: left;">二维</td>
+<td style="text-align: left;">- 数值标量 <br> - c×p 数值矩阵。对于灰度图像，通道数 c 为 1，对于彩色图像为 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">N 维图像</td>
+<td style="text-align: left;">二维</td>
+<td style="text-align: left;">- 数值标量 <br> - 数值数组，其大小与输入图像 <a href="#Q1">A</a> 的维度 3 至 N 相匹配。例如，如果 <code>A</code> 是 200×200×10×3，则 FillValues 可以是 10×3 数组。</td>
+</tr>
+<tr>
+<td style="text-align: left;">三维灰度或逻辑图像</td>
+<td style="text-align: left;">三维</td>
+<td style="text-align: left;">- 数值标量</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例:</strong> 255 表示用白色像素填充 <code>uint8</code> 图像</p>
+<p><strong>示例:</strong> 1 表示用白色像素填充 <code>double</code> 图像</p>
+<p><strong>示例:</strong> [0 1 0] 表示用绿色像素填充 <code>double</code> 彩色图像</p>
+<p><strong>示例:</strong> 对于一个包含两个 <code>double</code> 彩色图像的序列，(0 1 0; 0 1 1) 表示用绿色像素填充第一个图像，用青色像素填充第二个图像。</p>
+<p><strong>数据类型：</strong><code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>char</code> | <code>string</code> </p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> B — 平移后的图像</strong><br />
+数值数组 | 逻辑数组</p>
+<p>平移后的图像，指定为与输入图像 <a href="#Q1">A</a> 数据类型相同的数值数组或逻辑数组。  </p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imref2d/imref2d.html">imref2d</a> | <a 
+href="../imref3d/imref3d.html">imref3d</a> | <a 
+href="../imresize/imresize.html">imresize</a> | <a 
+href="../imrotate/imrotate.html">imrotate</a> | <a 
+href="../imwarp/imwarp.html">imwarp</a> </p>
+</body>
+</html>

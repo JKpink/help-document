@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>simtform3d</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    startup: {
+        ready: () => {
+            // 先处理 python-markdown-math 生成的 script 标签
+            const scripts = document.querySelectorAll('script[type^="math/tex"]');
+            scripts.forEach(script => {
+                const isDisplay = script.type.includes('mode=display');
+                const tex = script.textContent.trim();
+                // 用 $$ 或 $ 包裹公式，让 MathJax 正常识别
+                const wrappedTex = isDisplay ? '$$' + tex + '$$' : '$' + tex + '$';
+                const span = document.createElement('span');
+                span.textContent = wrappedTex;
+                script.parentNode.replaceChild(span, script);
+            });
+            // 然后运行默认的 MathJax 处理流程
+            MathJax.startup.defaultReady();
+        }
+    }
+};
+</script>
+<script id="MathJax-script" async src="./mathjax/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+    <h2>simtform3d</h2>
+<p>三维相似几何变换</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>tform = simtform3d</code></a>  <br />
+<a href="#function2"><code>tform = simtform3d(s, rotMat, t)</code></a><br />
+<a href="#function3"><code>tform = simtform3d(s, eulerAngles, t)</code></a><br />
+<a href="#function4"><code>tform = simtform3d(simMat)</code></a><br />
+<a href="#function5"><code>tform = simtform3d(tformIn)</code></a>      </p>
+<h2>用法</h2>
+<p><a id="function1"></a> <a href="#P1">tform</a> = simtform3d 创建一个执行恒等变换的 <code>simtform3d</code> 对象。    <br />
+<a id="function3"></a> <a href="#P1">tform</a> = simtform3d(<a href="#Q3">s</a>, <a href="#Q2">rotMat</a>, <a href="#Q1">t</a>) 从指定的缩放因子 <code>s</code>、旋转矩阵 <code>rotMat</code> 和平移量 <code>t</code>，创建一个进行相似变换的 <code>simtform3d</code> 对象。  <br />
+<a id="function3"></a> <a href="#P1">tform</a> = simtform3d(<a href="#Q3">s</a>, <a href="#Q4">eulerAngles</a>, <a href="#Q1">t</a>) 从指定的缩放因子 <code>s</code>、欧拉角度 <code>eulerAngles</code> 和平移量 <code>t</code>，创建一个进行相似变换的 <code>simtform3d</code> 对象。  <br />
+<a id="function4"></a> <a href="#P1">tform</a> = simtform3d(<a href="#Q5">simMat</a>) 从指定的三维相似变换矩阵 <code>simMat</code> 创建一个 <code>simtform3d</code> 对象。  <br />
+<a id="function5"></a> <a href="#P1">tform</a> = simtform3d(<a href="#Q6">tformIn</a>) 从另一个代表有效三维相似几何变换的几何对象 <code>tformIn</code> 创建一个 <code>simtform3d</code> 对象。    </p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q3"></a> s — 缩放因子</strong><br />
+1 (默认)| 正数  </p>
+<p>缩放因子，指定为一个正数。该缩放因子用于设置 <a href="#Q7">A</a> 属性所定义的相似变换矩阵中的参数 <code>s</code>。<br />
+此参数用于设置 <a href="#Q8">Scale</a> 属性。 </p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code>  </p>
+<p><strong><a id="Q2"></a> rotMat — 旋转矩阵</strong><br />
+3 × 3 单位矩阵 | 3 × 3 数值矩阵  </p>
+<p>旋转矩阵，指定为 3×3 数值矩阵。该旋转矩阵的效果是先绕 <code>z</code> 轴旋转，再绕 <code>y</code> 轴旋转，最后绕 <code>x</code> 轴旋转。 <br />
+此参数用于设置 <a href="#Q9">R</a> 属性。  </p>
+<p><strong><a id="Q1"></a> t — 平移量</strong><br />
+[0 0 0] (默认) | 3 元素数值向量  </p>
+<p>平移量指定为 $(t_x\ t_y\ t_z)$ 格式的 3 元素数值向量。这些平移量用于设置 <a href="#Q7">A</a> 属性所定义的相似变换矩阵中的参数 $t_x$ 、 $t_y$ 和 $t_z$ 。<br />
+此参数用于设置 <a href="#Q10">Translation</a> 属性。  </p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code>  </p>
+<p><strong><a id="Q4"></a> eulerAngles — 欧拉角</strong><br />
+[0 0 0]（默认值）| 3 元素数值向量  </p>
+<p>x、y、z 顺序的欧拉角，单位为度，指定为 $(r_x\ r_y\ r_z)$ 格式的 3 元素数值向量。欧拉角根据以下公式将 <a href="#Q9">R</a> 属性设置为三个旋转矩阵的乘积 :<br />
+<script type="math/tex; mode=display">
+\begin{aligned}
+R_x &= \begin{pmatrix}
+1 & 0 & 0 \\
+0 & \cos d(r_x) & -\sin d(r_x) \\
+0 & \sin d(r_x) & \cos d(r_x)
+\end{pmatrix}, \\
+R_y &= \begin{pmatrix}
+\cos d(r_y) & 0 & \sin d(r_y) \\
+0 & 1 & 0 \\
+-\sin d(r_y) & 0 & \cos d(r_y)
+\end{pmatrix}, \\
+R_z &= \begin{pmatrix}
+\cos d(r_z) & -\sin d(r_z) & 0 \\
+\sin d(r_z) & \cos d(r_z) & 0 \\
+0 & 0 & 1
+\end{pmatrix}, \\
+R &= R_z R_y R_x.
+\end{aligned}
+</script>
+</p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code>  </p>
+<p><strong><a id="Q5"></a> simMat — 三维正向相似变换</strong><br />
+4 × 4 单位矩阵 (默认) | 4 × 4 数值矩阵 | 3 × 4 数值矩阵  </p>
+<p>三维相似变换，指定为 4 × 4 数值矩阵。创建对象时，也可将 <code>simMat</code> 指定为 3 × 4 数值矩阵，此时对象会自动在矩阵末尾拼接行向量 [0 0 0 1]，形成 4 × 4 矩阵。<br />
+一个有效的三维相似变换矩阵 <code>A</code> 形式如下： 
+<script type="math/tex; mode=display">
+\boldsymbol{A} = 
+\begin{pmatrix}
+s * R(1,1) & s * R(1,2) & s * R(1,3) & t_x \\
+s * R(2,1) & s * R(2,2) & s * R(2,3) & t_y \\
+s * R(3,1) & s * R(3,2) & s * R(3,3) & t_z \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+</script>
+<br />
+其中<code>s</code> 为缩放因子，用于设置 <a href="#Q8">Scale</a> 属性。 R(i,j) 为旋转矩阵的元素，用于设置 <a href="#Q9">R</a> 属性。$t_x$ 、 $t_y$ 和 $t_z$ 分别为 <code>x</code>、<code>y</code>、<code>z</code> 方向的平移量，用于设置 <a href="#Q10">Translation</a> 属性。<br />
+此参数用于设置 <a href="#Q7">A</a> 属性。  </p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code>  </p>
+<p><strong><a id="Q6"></a> tformIn — 三维相似几何变换</strong><br />
+<code>affinetform3d</code> 对象 | <code>rigidtform3d</code> 对象 | <code>simtform3d</code> 对象 | <code>transltform3d</code> 对象 </p>
+<p>三维相似几何变换，指定为 <a href="../affinetform3d/affinetform3d.html">affinetform3d</a>  </a> 、 <a href="../rigidtform3d/rigidtform3d.html">rigidtform3d</a>  </a> 、 <code>simtform3d</code> 或 <a href="../transltform3d/transltform3d.html">transltform3d</a>  </a>  对象。        </p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> tform — 三维相似几何变换</strong><br />
+<code>simtform3d</code> 对象  </p>
+<p>三维相似几何变换，指定为 <code>simtform3d</code> 对象。</p>
+<h2>属性</h2>
+<p><strong><a id="Q7"></a> A — 三维正向相似变换</strong><br />
+4 × 4 单位矩阵 | 4 × 4 数值矩阵  </p>
+<p>三维正向相似变换，指定为 4 × 4 数值矩阵。 <code>A</code> 的默认值为单位矩阵。<br />
+矩阵 <code>A</code> 遵循以下约定，将输入坐标空间中的点 (u, v, w) 变换为输出坐标空间中的点 (x, y, z)：<br />
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+x \\ y \\ z \\ 1
+\end{pmatrix}
+=
+\boldsymbol{A} \times
+\begin{pmatrix}
+u \\ v \\ w \\ 1
+\end{pmatrix}
+</script> 
+对于相似变换，<code>A</code> 的形式为：<br />
+<script type="math/tex; mode=display">
+\boldsymbol{A} =
+\begin{pmatrix}
+s * R(1,1) & s * R(1,2) & s * R(1,3) & t_x \\
+s * R(2,1) & s * R(2,2) & s * R(2,3) & t_y \\
+s * R(3,1) & s * R(3,2) & s * R(3,3) & t_z \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+</script> 
+其中 <code>s</code> 为缩放因子用于设置 <a href="#Q8">Scale</a> 属性。R(i, j) 是旋转矩阵的元素，用于设置 <a href="#Q9">R</a> 属性。  $t_x$ 、 $t_y$ 和 $t_z$ 分别为 <code>x</code>、<code>y</code>、<code>z</code> 方向的平移量，用于设置 <a href="#Q10">Translation</a> 属性。  </p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code>  </p>
+<p><strong><a id="Q8"></a> Scale — 缩放因子</strong><br />
+1 (默认) | 正数  </p>
+<p>缩放因子，指定为一个正数。该缩放因子用于设置 <a href="#Q7">A</a> 属性所定义的相似变换矩阵中的参数 <code>s</code>。  </p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code>  </p>
+<p><strong><a id="Q9"></a> R — 旋转矩阵</strong><br />
+3 × 3 单位矩阵 (默认) | 3 × 3 数值矩阵  </p>
+<p>旋转矩阵，指定为 3×3 数值矩阵，该旋转矩阵的效果是先绕 <code>z</code> 轴旋转，再绕 <code>y</code> 轴旋转，最后绕 <code>x</code> 轴旋转。     </p>
+<p><strong><a id="Q10"></a> Translation — 平移量</strong><br />
+[0 0 0] (默认) | 3 元素数值向量  </p>
+<p>平移量，指定为 $(t_x\ t_y\ t_z)$ 格式的 3 元素数值向量。</p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code>  </p>
+<p><strong>Dimensionality — 几何变换的维度</strong><br />
+只读：3（默认）</p>
+<p>此属性为只读。 
+输入点和输出点的几何变换维度，这里始终为3。  </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../affinetform3d /affinetform3d .html">affinetform3d </a> | <a
+href="../rigidtform3d/rigidtform3d.html">rigidtform3d</a> | <a 
+href="../transltform3d/transltform3d.html">transltform3d</a> | <a 
+href="../imwarp/imwarp.html">imwarp</a> </p>
+</body>
+</html>

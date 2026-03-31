@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imsharpen</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imsharpen</h2>
+<p>使用非锐化模板锐化图像</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>B = imsharpen(A)</code></a><br />
+<a href="#function2"> <code>B = imsharpen(A, Name, Value)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q3">B</a> = imsharpen(<a href="#Q1">A</a>) 使用钝化蒙版方法锐化灰度或真彩色(RGB)图像 <code>A</code> 。<br />
+<a id="function2"></a>
+<a href="#Q3">B</a> = imsharpen(<a href="#Q1">A</a>,<a href="#Q2"> Name, Value</a>) 使用名称-值参数来控制钝化蒙版的各个方面。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> A — 待锐化图像</strong><br />
+灰度图像 | RGB 图像  </p>
+<p>要锐化的图像，指定为灰度或 RGB 图像。</p>
+<p><strong>数据类型:</strong> <code>uint8</code></p>
+<h3><a id="Q2"></a> 名称-值参数</h3>
+<p>指定可选的参数对，格式为 Name1, Value1,...,NameN, ValueN，其中 <code>Name</code> 是参数名称，<code>Value</code> 是对应的值。名称 - 值参数必须出现在其他参数之后，但参数对的顺序无关紧要。</p>
+<p><strong>Radius — 高斯低通滤波器的标准偏差</strong><br />
+1（默认值）| 正数</p>
+<p>高斯低通滤波器的标准偏差，指定为正数。此参数控制边缘像素周围受锐化影响的区域大小。较大的值会使边缘周围更宽的区域变锐，而较小的值会使边缘周围更窄的区域变锐。</p>
+<p><strong>数据类型：</strong> <code>uint8</code></p>
+<p><strong>Amount — 锐化效果强度</strong><br />
+0.8（默认值）| 数字  </p>
+<p>锐化效果的强度，以数字形式指定。该值越大，锐化像素的对比度增加幅度越大。此参数的典型值在 [0, 2] 范围内，但允许使用大于 2 的值。此参数的值过大可能会在输出图像中产生不良效果。</p>
+<p><strong>数据类型：</strong> <code>uint8</code></p>
+<p><strong>Threshold — 被视为边缘像素的最小对比度</strong><br />
+0（默认值）| 范围 [0, 1] 内的数字  </p>
+<p>被视为边缘像素的最小对比度，指定为范围 [0, 1] 内的数字。较大的值（更接近 1）仅允许在高对比度区域（如强边缘）进行锐化，而不会影响低对比度区域。较小的值（更接近 0）还允许在图像相对平滑的区域进行锐化。此参数有助于避免在输出图像中锐化噪声。</p>
+<p><strong>数据类型：</strong> <code>uint8</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="Q3"></a> B — 锐化的图像</strong><br />
+数字数组  </p>
+<p>锐化图像，与输入图像 <code>A</code> 的大小和数据类型相同。</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出  </p>
+<h2>相关主题</h2>
+<p><a href="../fspecial/fspecial.html">fspecial</a> | <a
+href="../imadjust/imadjust.html">imadjust</a> | <a 
+href="../imcontrast/imcontrast.html">imcontrast</a> </p>
+</body>
+</html>

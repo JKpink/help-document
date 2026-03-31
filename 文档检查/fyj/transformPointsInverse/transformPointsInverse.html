@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>transformPointsInverse</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>transformPointsInverse</h2>
+<p>应用逆几何变换</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>[u, v] = transformPointsInverse(tform, x, y)</code></a><br />
+<a href="#function2"><code>[u, v, w] = transformPointsInverse(tform, x, y, z)</code></a><br />
+<a href="#function3"><code>U = transformPointsInverse(tform, X)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a> [<a href="#P1">u</a>, <a href="#P2">v</a>] = transformPointsInverse(<a href="#Q1">tform</a>, <a href="#Q2">x</a>, <a href="#Q3">y</a>) 将二维几何变换 <code>tform</code> 的逆变换应用于由坐标 <code>u</code> 和 <code>v</code> 指定的点。  <br />
+<a id="function2"></a> [<a href="#P1">u</a>, <a href="#P2">v</a>, <a href="#P3">w</a>] = transformPointsInverse(<a href="#Q1">tform</a>, <a href="#Q2">x</a>, <a href="#Q3">y</a>, <a href="#Q4">z</a>) 将三维几何变换 <code>tform</code> 的逆变换应用于由坐标 <code>u</code>、<code>v</code> 和 <code>w</code> 指定的点。 <br />
+<a id="function3"></a> <a href="#P4">U</a> = transformPointsInverse(<a href="#Q1">tform</a>, <a href="#Q5">X</a>)将 <code>tform</code> 的逆变换应用于输入坐标矩阵 <code>X</code>，并返回坐标矩阵 <code>U</code>。<code>transformPointsForward</code> 将第 k 个点 X(k, :) 映射到点 U(k, :)。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> tform — 几何变换</strong><br />
+几何变换对象  </p>
+<p>几何变换，指定为下表所列的几何变换对象之一：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">几何变换对象</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">二维线性几何变换</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../transltform2d/transltform2d.html">transltform2d</a>  </a></td>
+<td style="text-align: left;">平移变换</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../rigidtform2d/rigidtform2d.html">rigidtform2d</a>  </a></td>
+<td style="text-align: left;">刚性变换：平移和旋转</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../simtform2d/simtform2d.html">simtform2d</a>  </a></td>
+<td style="text-align: left;">相似变换：平移、旋转和各向同性缩放</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../affinetform2d/affinetform2d.html">affinetform2d</a>  </a></td>
+<td style="text-align: left;">仿射变换：平移、旋转、各向异性缩放、反射和剪切</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../projtform2d/projtform2d.html">projtform2d</a>  </a></td>
+<td style="text-align: left;">投影变换</td>
+</tr>
+<tr>
+<td style="text-align: left;">三维线性几何变换</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../transltform3d/transltform3d.html">transltform3d</a>  </a></td>
+<td style="text-align: left;">平移变换</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../rigidtform3d/rigidtform3d.html">rigidtform3d</a>  </a></td>
+<td style="text-align: left;">刚性变换：平移和旋转</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../simtform3d/simtform3d.html">simtform3d</a>  </a></td>
+<td style="text-align: left;">相似变换：平移、旋转和各向同性缩放</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../affinetform3d/affinetform2、3d.html">affinetform3d</a>  </a></td>
+<td style="text-align: left;">仿射变换：平移、旋转、各向异性缩放、反射和剪切</td>
+</tr>
+<tr>
+<td style="text-align: left;">非线性几何变换</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../geometricTransform2d/geometricTransform2d.html">geometricTransform2d</a>  </a></td>
+<td style="text-align: left;">使用逐点映射函数的自定义二维几何变换</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../geometricTransform3d/geometricTransform3d.html">geometricTransform3d</a>  </a></td>
+<td style="text-align: left;">使用逐点映射函数的自定义三维几何变换</td>
+</tr>
+</tbody>
+</table>
+<p><strong><a id="Q2"></a> x — 要变换点的 x 坐标</strong><br />
+m × n 或 m × n × p 的数值数组  </p>
+<p>要变换点的 <code>x</code> 坐标，指定为 m × n 或 m × n × p 数值数组。<code>x</code> 的维度数与 <a href="#Q1">tform</a> 的维数相同。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="Q3"></a> y — 要变换点的 y 坐标</strong><br />
+m × n 或 m × n × p 的数值数组  </p>
+<p>要变换点的 <code>y</code> 坐标，指定为 m × n 或 m × n × p 数值数组。<code>y</code> 的大小必须与 <a href="#Q2">x</a> 的大小相同。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="Q4"></a> z — 要变换点的 z 坐标</strong><br />
+m × n × p 数值数组  </p>
+<p>要变换点的 <code>z</code> 坐标，指定为 m × n × p 数值数组。当 <a href="#Q1">tform</a> 为三维几何变换时，才会使用 <code>z</code>。<code>z</code> 的大小必须与 <a href="#Q2">x</a> 的大小相同。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="Q5"></a> X — 要变换点坐标</strong><br />
+1 × 2 或 1 × 3 数值数组  </p>
+<p>要变换点的坐标，指定为 1 × 2 或 1 × 3 数值数组。<code>X</code> 的列数与 <a href="#Q1">tform</a> 的维数相同。<br />
+第一列存储每个要变换点的 <code>x</code> 坐标，第二列存储要变换点的 <code>y</code> 坐标。若 <code>tform</code> 为三维几何变换，则 <code>X</code> 为 1 × 3 数组，且第三列存储要变换点的 <code>z</code> 坐标。  </p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> u — 变换后点的 x 坐标</strong><br />
+m × n 或 m × n × p 的数值数组  </p>
+<p>变换后点的 <code>x</code> 坐标，指定为 m × n 或 m × n × p 数值数组。<code>u</code> 的维度数与 <a href="#Q1">tform</a> 的维数相同。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="P2"></a> v — 变换后点的 y 坐标</strong><br />
+m × n 或 m × n × p 的数值数组  </p>
+<p>变换后点的 <code>y</code> 坐标，指定为 m × n 或 m × n × p 数值数组。<code>v</code> 的大小必须与 <a href="#P1">u</a> 的大小相同。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="P3"></a> w — 变换后点的 z 坐标</strong><br />
+m × n × p 数值数组  </p>
+<p>变换后点的 <code>z</code> 坐标，指定为 m × n × p 数值数组。<code>w</code> 的大小必须与 <a href="#P1">u</a> 的大小相同。 </p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="P4"></a> U — 变换后点的坐标</strong><br />
+数值数组  </p>
+<p>变换后点的坐标，指定为数值数组。<code>U</code> 的尺寸必须与 <a href="#Q2">X</a> 的大小相同。<br />
+第一列存储每个变换后点的 <code>x</code> 坐标，第二列存储变换后点的 <code>y</code> 坐标。若 <a href="#Q1">tform</a> 为三维几何变换，则数组包含第三列，存储变换后点的 <code>z</code> 坐标。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code></p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../transformPointsForward/transformPointsForward.html">transformPointsForward</a> | <a
+href="../imwarp/imwarp.html">imwarp </a></p>
+</body>
+</html>

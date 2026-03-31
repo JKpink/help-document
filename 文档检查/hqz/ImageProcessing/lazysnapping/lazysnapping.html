@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>lazysnapping</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>lazysnapping</h2>
+<p>使用基于图的分割将图像分割为前景和背景</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>BW = lazysnapping(A, L, foremask, backmask)</code></a><br />
+<a href="#function2"><code>BW = lazysnapping(A, L, foreind, backind)</code></a>  </p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#P1">BW</a> = lazysnapping(<a href="#Q1">A</a>, <a href="#Q2">L</a>, <a href="#Q3">foremask</a>, <a href="#Q4">backmask</a>) 使用 lazy snapping 将图像 <code>A</code> 分割为前景和背景区域。标签矩阵 <code>L</code> 指定图像的子区域。<code>foremask</code> 和 <code>backmask</code> 分别为指定图像中前景和背景像素的掩膜。</p>
+<p><a id="function2"></a></p>
+<p><a href="#P1">BW</a> = lazysnapping(<a href="#Q1">A</a>, <a href="#Q2">L</a>, <a href="#Q5">foreind</a>, <a href="#Q6">backind</a>) 将图像 <code>A</code> 分割为前景和背景区域。<code>foreind</code> 和 <code>backind</code> 分别指定标记为前景和背景的像素的线性索引。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> A — 待分割图像</strong><br />
+2-D 灰度图像 | 2-D 真彩色图像 | 2-D 多光谱图像 </p>
+<p>待分割图像，指定为 2-D 灰度图像、真彩色图像、多光谱图像。对于 <code>double</code> 和 <code>single</code> 类型图像，<code>lazysnapping</code> 假定图像值范围为 [0, 1]。对于 <code>uint16</code>、<code>int16</code> 和 <code>uint8</code> 类型图像，假定范围为该数据类型对应的完整范围。若图像值不符合基于数据类型的预期范围，可缩放图像至预期范围或调整 <code>EdgeWeightScaleFactor</code> 以改善结果。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int16</code> | <code>uint8</code> | <code>uint16</code></p>
+<p><strong><a id="Q2"></a> L — 标签矩阵</strong><br />
+数值数组</p>
+<p>输入图像或体数据的标签矩阵，指定为数值数组。对于 2-D 灰度图像，<code>L</code> 的大小必须与输入图像 <code>A</code> 的大小一致。对于彩色图像和多通道图像，<code>L</code> 必须是 2-D 数组，其前两维与输入图像 <code>A</code> 的前两维匹配。</p>
+<p>标签矩阵中的同一子区域不可同时标记为前景和背景。若某子区域同时包含前景和背景像素，<code>lazysnapping</code> 将该区域分割为背景。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q3"></a> foremask — 定义前景的掩膜图像</strong><br />
+逻辑数组</p>
+<p>定义前景的掩膜图像，指定为逻辑数组。对于 2-D 灰度图像，<code>foremask</code> 的大小必须与输入图像 <code>A</code> 的大小一致。对于彩色图像和多通道图像，<code>foremask</code> 必须是 2-D 数组，其前两维与输入图像 <code>A</code> 的前两维匹配。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q4"></a> backmask — 定义背景的掩膜图像</strong><br />
+逻辑数组</p>
+<p>定义背景的掩膜图像，指定为逻辑数组。对于 2-D 灰度图像，<code>backmask</code> 的大小必须与输入图像 <code>A</code> 的大小一致。对于彩色图像和多通道图像，<code>backmask</code> 必须是 2-D 数组，其前两维与输入图像 <code>A</code> 的前两维匹配。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q5"></a> foreind — 前景像素的线性索引</strong><br />
+数值向量</p>
+<p>标签矩阵中前景像素的线性索引，指定为数值向量。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q6"></a> backind — 背景像素的线性索引</strong><br />
+数值向量</p>
+<p>标签矩阵中背景像素的线性索引，指定为数值向量。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<h3>名称-值参数</h3>
+<p>使用名称-值参数指定可选的参数对。参数名必须为字符向量，参数值为对应值。名称-值参数必须出现在其他参数之后，但各对的顺序不限。</p>
+<p><strong><a id="Q7"></a> Connectivity — 连通组件的连通性</strong><br />
+<code>8</code>（2-D 图像默认）| <code>4</code> </p>
+<p>连通组件的连通性，指定为 <code>'Connectivity'</code> 和以下值之一：对于 2-D 图像，可取 <code>4</code> 或 <code>8</code>。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<p><strong><a id="Q8"></a> EdgeWeightScaleFactor — 边权重的缩放因子</strong><br />
+<code>500</code> （默认） | 正数</p>
+<p>标签矩阵子区域间边权重的缩放因子，指定为 <code>'EdgeWeightScaleFactor'</code> 和一个正数。典型取值范围为 [10, 1000]。增大该值可提高 <code>lazysnapping</code> 将相邻子区域一同标记为前景或背景的可能性。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> BW — 分割图像</strong><br />
+逻辑数组</p>
+<p>分割后的图像，以与标签矩阵 <code>L</code> 相同大小的逻辑数组形式返回。</p>
+<p><strong>数据类型：</strong> <code>logical</code></p>
+<h2>算法</h2>
+<p>Lazy snapping 是一种基于图割的交互式图像分割算法。该算法首先将图像过分割为若干超像素（由标签矩阵 <code>L</code> 表示），构建图模型，其中节点为超像素，边连接相邻超像素。边的权重基于超像素间的颜色相似性计算。用户通过指定前景和背景种子点（通过掩膜或线性索引提供）来标记部分节点。算法通过求解最小割问题，将剩余节点标记为前景或背景，从而实现分割。</p>
+<h2>参考文献</h2>
+<p>Li Y, Sun J, Tang CK, Shum HY. Lazy Snapping. In: Proceedings of the 31st International Conference on Computer Graphics and Interactive Techniques (SIGGRAPH); 2004.</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V3.0 推出  </p>
+</body>
+</html>

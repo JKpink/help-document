@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imref2d</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imref2d</h2>
+<p>将二维图像参考到世界坐标</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>R = imref2d</code></a> <br />
+<a href="#function2"><code>R = imref2d(imageSize)</code></a><br />
+<a href="#function3"><code>R = imref2d(imageSize, pixExtentWorldX, pixExtentWorldY)</code></a><br />
+<a href="#function4"><code>R = imref2d(imageSize, xWorldLim, yWorldLim)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a> <a href="#P1">R</a> = imref2d 创建一个带有默认属性设置的 <code>imref2d</code> 对象。<br />
+<a id="function2"></a> <a href="#P1">R</a> = imref2d(<a href="#Q1">imageSize</a>) 指定图像在各空间维度的大小。<br />
+<a id="function3"></a> <a href="#P1">R</a> = imref2d(<a href="#Q1">imageSize</a>, <a href="#Q2">pixExtentWorldX</a>, <a href="#Q3">pixExtentWorldY</a>) 在指定图像大小的基础上，进一步定义单个像素在世界坐标系下 <code>x</code> 方向和 <code>y</code> 方向的空间范围。<br />
+<a id="function4"></a> <a href="#P1">R</a> = imref2d(<a href="#Q1">imageSize</a>, <a href="#Q4">xWorldLim</a>, <a href="#Q5">yWorldLim</a>) 在指定图像大小的基础上，进一步定义图像在世界坐标系下 <code>x</code> 方向和 <code>y</code> 方向的空间范围。 </p>
+<h2>参数</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> imageSize — 各空间维度的元素数量</strong><br />
+2 元素正整数行向量  </p>
+<p>各空间维度的元素数量，指定为 2 元素正整数行向量。<code>imageSize</code> 的格式与 <a href="../size/size.html">size</a>  </a> 函数返回值相同。<br />
+该参数用于设置 <a href="#Q6">ImageSize</a> 属性。</p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong><a id="Q2"></a> pixExtentWorldX — 单个像素在 x 方向的大小</strong><br />
+正数  </p>
+<p>单个像素在世界坐标系下 <code>x</code> 方向的大小，指定为正数。<br />
+该参数用于设置 <a href="#Q7">PixelExtentInWorldX</a> 属性。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q3"></a> pixExtentWorldY — 单个像素在 y 方向的尺寸</strong><br />
+正数  </p>
+<p>单个像素在世界坐标系下 <code>y</code> 方向的大小，指定为正数。<br />
+该参数用于设置 <a href="#Q8">PixelExtentInWorldY</a> 属性。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q4"></a> xWorldLim — 图像在世界坐标系 x 方向的空间范围</strong><br />
+2 元素数值行向量  </p>
+<p>图像在世界坐标系 <code>x</code> 方向的空间范围，指定为 2 元素数值行向量 [xMin xMax]。<br />
+该参数用于设置 <a href="#Q9">XWorldLimits</a> 属性。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q5"></a> yWorldLim — 图像在世界坐标系 y 方向的空间范围</strong><br />
+2 元素数值行向量  </p>
+<p>图像在世界坐标系 <code>y</code> 方向的空间范围，指定为 2 元数数值行向量 [yMin yMax]。<br />
+该参数用于设置 <a href="#Q10">YWorldLimits</a> 属性。  </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<h2>输出参数</h2>
+<p><strong><a id="P1"></a> R — 二维空间参考对象</strong><br />
+<code>imref2d</code> 对象  </p>
+<p>二维空间参考对象，指定为一个 <code>imref2d</code> 对象。  </p>
+<h2>属性</h2>
+<p><strong>ImageExtentInWorldX — 图像在世界坐标系 x 方向的跨度</strong><br />
+数值标量  </p>
+<p>图像在世界坐标系 <code>x</code> 方向的跨度，指定为一个数值标量。<code>imref2d</code> 对象将此值设为 <code>PixelExtentInx</code> * <code>ImageSize(2)</code>。  </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong>ImageExtentInWorldY — 图像在世界坐标系 y 方向的跨度</strong><br />
+数值标量  </p>
+<p>图像在世界坐标系 <code>y</code> 方向的跨度，指定为一个数值标量。<code>imref2d</code> 对象将此值设为 <code>PixelExtentInY</code> * <code>ImageSize(1)</code>。  </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong><a id="Q6"></a> ImageSize — 各空间维度的元素数量</strong><br />
+2 元素正整数行向量  </p>
+<p>各空间维度的元素数量，指定为 2 元素正整数行向量。<code>imageSize</code> 的格式与 <a href="../size/size.html">size</a>  </a> 函数返回值相同。  </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong><a id="Q7"></a> PixelExtentInWorldX — 单个像素在世界坐标系 x 方向的大小</strong><br />
+正数  </p>
+<p>单个像素在世界坐标系 <code>x</code> 方向的大小，指定为正数。  </p>
+<p><strong>数据类型：</strong> <code>double</code>   </p>
+<p><strong><a id="Q8"></a> PixelExtentInWorldY — 单个像素在世界坐标系 y 方向的大小</strong><br />
+正数  </p>
+<p>单个像素在世界坐标系 <code>y</code> 方向的大小，指定为正数。  </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong><a id="Q9"></a> XWorldLimits — 图像在世界坐标系 x 方向的空间范围</strong><br />
+2 元素数值行向量  </p>
+<p>图像在世界坐标系 <code>x</code> 方向的空间范围，指定为 2 元素数值行向量 [xMin xMax]。 </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong><a id="Q10"></a> YWorldLimits — 图像在世界坐标系 y 方向的空间范围</strong><br />
+2 元素数值行向量  </p>
+<p>图像在世界坐标系 <code>y</code> 方向的空间范围，指定为 2 元素数值行向量 [yMin yMax]。 </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong>XIntrinsicLimits — 图像在固有坐标系 x 方向的空间范围</strong><br />
+2 元素行向量  </p>
+<p>图像在固有坐标系 <code>x</code> 方向的空间范围，指定为 2 元素行向量 [xMin xMax]。对于 m × n（或 m × n × p）图像，<code>XIntrinsicLimits</code> 固定为 [0.5, n+0.5]。  </p>
+<p><strong>数据类型：</strong> <code>double</code>   </p>
+<p><strong>YIntrinsicLimits — 图像在固有坐标系 y 方向的空间范围</strong><br />
+2 元素行向量  </p>
+<p>图像在固有坐标系 <code>y</code> 方向的空间范围，指定为 2 元素行向量 [yMin yMax]。对于 m × n（或 m × n × p）图像，<code>YIntrinsicLimits</code> 固定为 [0.5, m+0.5]。 </p>
+<p><strong>数据类型：</strong> <code>double</code>                 </p>
+<h2>提示</h2>
+<ul>
+<li>你可以为 RGB 图像创建一个 <code>imref2d</code> 对象。如果在创建对象时将 <code>ImageSize</code> 属性指定为一个三元素向量（例如 <a href="../size/size.html">size</a>  </a> 函数返回的向量)，则只有前两个元素会被用于设置 <code>ImageSize</code>。</li>
+</ul>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imref3d/imref3d.html">imref3d</a> | <a
+href="../imwarp/imwarp.html">imwarp</a> | <a 
+href="../imshow/imshow.html">imshow</a> </p>
+</body>
+</html>

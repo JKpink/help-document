@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imlincomb</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    startup: {
+        ready: () => {
+            // 先处理 python-markdown-math 生成的 script 标签
+            const scripts = document.querySelectorAll('script[type^="math/tex"]');
+            scripts.forEach(script => {
+                const isDisplay = script.type.includes('mode=display');
+                const tex = script.textContent.trim();
+                // 用 $$ 或 $ 包裹公式，让 MathJax 正常识别
+                const wrappedTex = isDisplay ? '$$' + tex + '$$' : '$' + tex + '$';
+                const span = document.createElement('span');
+                span.textContent = wrappedTex;
+                script.parentNode.replaceChild(span, script);
+            });
+            // 然后运行默认的 MathJax 处理流程
+            MathJax.startup.defaultReady();
+        }
+    }
+};
+</script>
+<script id="MathJax-script" async src="./mathjax/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+    <h2>imlincomb</h2>
+<p>图像的线性组合运算</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>Z = imlincomb(K1, A1, K2, A2, …, Kn, An)</code></a><br />
+<a href="#function2"><code>Z = imlincomb(K1, A1, K2, A2, …, Kn, An, K)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q4">Z</a> = imlincomb(<a href="#Q1">K1</a>, <a href="#Q2">A1</a>, <a href="#Q1">K2</a>, <a href="#Q2">A2</a>, …, <a href="#Q1">Kn</a>, <a href="#Q2">An</a>) 计算多张图像 <code>A1, A2, …, An</code> 的线性组合，其中 <code>K1, K2, …, Kn</code> 为对应图像的权重系数，运算公式为：
+<script type="math/tex; mode=display">
+Z = K_1 \times A_1 + K_2 \times A_2 + \dots + K_n \times A_n
+</script>
+<a id="function2"></a>
+<a href="#Q4">Z</a>  = imlincomb(<a href="#Q1">K1</a>, <a href="#Q2">A1</a>, <a href="#Q1">K2</a>, <a href="#Q2">A2</a>, …, <a href="#Q1">Kn</a>, <a href="#Q2">An</a>, <a href="#Q3">K</a>) 在上述线性组合基础上增加偏移量 <code>K</code>，运算公式为：
+<script type="math/tex; mode=display">
+Z = K_1 \times A_1 + K_2 \times A_2 + \dots + K_n \times A_n+K
+</script>
+</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> K1， K2， Kn — 图像系数</strong><br />
+数值标量</p>
+<p>图像的权重系数，指定为数值标量。</p>
+<p><strong>数据类型：</strong>  <code>double</code> </p>
+<p><strong><a id="Q2"></a> A1， A2， An — 输入图像</strong><br />
+数值数组</p>
+<p>输入图像，指定为尺寸和数据类型完全相同的数值数组。</p>
+<p><strong><a id="Q3"></a> K — 偏移</strong><br />
+数值标量</p>
+<p>线性组合的偏移量，指定为数值标量。</p>
+<p><strong>数据类型：</strong>  <code>double</code> </p>
+<h3>输出参数</h3>
+<p><strong><a id="Q4"></a> Z — 线性组合图像</strong><br />
+数值数组</p>
+<p>线性组合后的图像，返回为与 <code>A1</code> 尺寸相同的数值数组：</p>
+<ul>
+<li>若 <code>A1</code> 为逻辑类型，<code>Z</code> 为 <code>double</code> 类型；否则 <code>Z</code> 与 <code>A1</code> 数据类型相同。</li>
+</ul>
+<h2>提示</h2>
+<p>对多张图像执行连续算术运算时，使用 <code>imlincomb</code> 比嵌套调用 <a href="../imadd/imadd.html">imadd</a>/<a 
+href="../imdivide/imdivide.html">imdivide</a> 等单个算术函数能获得更高精度：</p>
+<ul>
+<li>嵌套调用时，若输入为整数类型，每个函数都会先截断 / 舍入结果再传递给下一个函数，导致精度损失；</li>
+<li><code>imlincomb</code> 先以双精度浮点数逐元素完成所有运算，仅在最终输出时（若为整数类型）裁剪超出范围的元素、舍入小数部分，最大程度保留精度。</li>
+</ul>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.1 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imadd/imadd.html">imadd</a> | <a 
+href="../imcomplement/imcomplement.html">imcomplement</a> | <a 
+href="../imdivide/imdivide.html">imdivide</a> | <a 
+href="../immultiply/immultiply.html">immultiply</a> | <a 
+href="../imsubtract/imsubtract.html">imsubtract</a></p>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imbinarize</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imbinarize</h2>
+<p>通过阈值化将灰度图像二值化</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>BW = imbinarize(I)</code></a><br />
+<a href="#function2"> <code>BW = imquantize(I, method)</code></a><br />
+<a href="#function3"> <code>BW = imquantize(I, T)</code></a><br />
+<a href="#function4"> <code>BW = imquantize(I, "adaptive", Name, Value)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#P1">BW</a> = imbinarize(<a href="#Q1">I</a>) 将所有高于全局阈值的值替换为 1 并将所有其他值设置为 0，从二维或三维灰度图像 <code>I</code> 创建二值图像。<code>imbinarize</code> 默认使用 Otsu 方法，该方法选择特定阈值来最小化阈值化的黑白像素的类内方差 <a href="#ref1">[1]</a>。<code>imbinarize</code> 使用包含 256 个 bin 的图像直方图来计算 Otsu 阈值。若使用不同直方图，请参阅 <a href="../otsuthresh/otsuthresh.html">otsuthresh</a>。<br />
+<a id="function2"></a>
+<a href="#P1">BW</a> = imbinarize(<a href="#Q1">I</a>, <a href="#Q2">method</a>) 使用 <code>method</code> 指定的阈值化方法（"global" 或 "adaptive"）从图像 <code>I</code> 创建二值图像。<br />
+<a id="function3"></a>
+<a href="#P1">BW</a> = imbinarize(<a href="#Q1">I</a>, <a href="#Q3">T</a>) 使用阈值 <code>T</code> 从图像 <code>I</code> 创建二值图像。<code>T</code> 可以是指定为标量亮度值的全局图像阈值，也可以是指定为亮度值矩阵的局部自适应阈值。<br />
+<a id="function4"></a>
+<a href="#P1">BW</a> = imbinarize(<a href="#Q1">I</a>, "adaptive", <a href="#Q4">Name, Value</a>) 使用名称-值参量从图像 <code>I</code> 创建二值图像，以控制自适应阈值的各个方面。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> I — 输入图像</strong><br />
+二维灰度图像 | 三维灰度图像体</p>
+<p>输入图像，指定为二维灰度图像或三维灰度图像体。imbinarize 需要数据类型为 <code>double</code> 和 <code>single</code> 的图像的值在 [0, 1] 的范围内。如果 <code>I</code> 的值超出范围 [0, 1]，则可以使用 <a href="../rescale/rescale.html">rescale</a> 函数将值重新缩放到需要的范围。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code></p>
+<p><strong><a id="Q2"></a> method — 用于二值化图像的方法</strong><br />
+"global"（默认）| "adaptive"</p>
+<p>用于二值化图像的方法，指定为下列值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>意义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"global"</td>
+<td style="text-align: left;">用 Otsu 方法计算全局图像阈值。有关 Otsu 方法的详细信息，请参阅 <a href="../graythresh/graythresh.html">graythresh</a>。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"adaptive"</td>
+<td style="text-align: left;">使用每个像素周围的局部一阶图像统计量来计算局部自适应图像阈值。有关详细信息，请参阅 <a href="../adaptthresh/adaptthresh.html">adaptthresh</a>。如果图像包含 <code>Inf</code> 或 <code>NaN</code>，则 <code>imbinarize</code> 对于 "adaptive" 方法的行为是未定义的。<code>Inf</code> 或 <code>NaN</code> 的传播可能不会局限于 <code>Inf</code> 和 <code>NaN</code> 像素周围的邻域。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>char</code> | <code>string</code></p>
+<p><strong><a id="Q3"></a> T — 阈值</strong><br />
+数值标量 | 数值数组</p>
+<p>亮度阈值，指定为由范围 [0, 1] 内的值组成的数值标量或数值数组。</p>
+<ul>
+<li>如果 <code>T</code> 是数值标量，则 imbinarize 将 <code>T</code> 解释为全局图像阈值。使用 <a href="../graythresh/graythresh.html">graythresh</a> 或 <a href="../otsuthresh/otsuthresh.html">otsuthresh</a> 计算全局图像阈值。</li>
+<li>如果 <code>T</code> 是数值数组，则 imbinarize 将 <code>T</code> 解释为局部自适应阈值。使用 <a href="../adaptthresh/adaptthresh.html">adaptthresh</a> 计算局部自适应阈值。</li>
+</ul>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<h3><a id="Q4"></a> 名称-值参数</h3>
+<p>指定可选的参数对，格式为 Name1, Value1, ... , NameN, ValueN，其中 Name 是参数名称，Value 是对应的值。名称-值参数必须出现在其他参数之后，但各参数对的顺序可以任意。<br />
+示例: BW = imbinarize(I, "adaptive", "Sensitivity", 0.4); 将灵敏度因子指定为 0.4。</p>
+<p><strong>Sensitivity — 自适应阈值的敏感度因子</strong><br />
+0.50（默认）| [0, 1]范围内的数值</p>
+<p>自适应阈值化的敏感度因子，指定为 [0, 1] 范围内的数值。高敏感度值会使更多像素阈值化为前景，但存在混入部分背景像素的风险。  </p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<p><strong>ForegroundPolarity — 确定哪些像素被视为前景像素</strong><br />
+"bright"（默认） | "dark"  </p>
+<p>确定将哪些像素视为自适应阈值化的前景像素，指定为下列值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">值</th>
+<th style="text-align: left;">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"bright"</td>
+<td style="text-align: left;">前景比背景亮。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"dark"</td>
+<td style="text-align: left;">前景比背景暗。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>char</code> | <code>string</code> </p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> BW — 输出二值图像</strong><br />
+逻辑矩阵 | 逻辑数组</p>
+<p>输出二值图像，以与 <a href="#Q1">I</a> 大小相同的逻辑矩阵或逻辑数组形式返回。</p>
+<p><strong>数据类型：</strong> <code>logical</code></p>
+<!-- ## 算法
+"adaptive" 方法使用局部自适应阈值对图像进行二值化。`imbinarize` 使用像素邻域的局部均值强度计算每个像素的阈值。这种方法也称为布拉德利方法 [[2]](#ref2)。"adaptive" 方法使用约为图像大小 1/8 的邻域大小（由 2*floor(size(I)/16)+1 求得）。要使用其他一阶局部统计量或不同的邻域大小，请参阅 <a href="../adaptthresh/adaptthresh.html">adaptthresh</a>。 -->
+
+<h2>参考文献</h2>
+<p><a id="ref1"></a>[1] Otsu, N. A Threshold Selection Method from Gray-Level Histograms. IEEE Transactions on Systems, Man, and Cybernetics, 1979, 9(1): 62–66.  </p>
+<!-- <a id="ref2"></a>[2] Bradley, D., G. Roth. Adapting Thresholding Using the Integral Image[J]. Journal of Graphics Tools, 2007, 12(2): 13–21. -->
+
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../graythresh/graythresh.html">graythresh</a> | <a 
+href="../otsuthresh/otsuthresh.html">otsuthresh</a> | <a 
+href="../adaptthresh/adaptthresh.html">adaptthresh</a> </p>
+<!-- | <a 
+href="../Image Segmenter/Image Segmenter.html">Image Segmenter</a>  -->
+</body>
+</html>

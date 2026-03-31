@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>adaptthresh</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>adaptthresh</h2>
+<p>基于局部一阶统计量计算自适应图像阈值</p>
+<h2>简介</h2>
+<p><a href="#function1">T = adaptthresh(I)</a><br />
+<a href="#function2">T = adaptthresh(I, sensitivity)</a><br />
+<a href="#function3">T = adaptthresh(___, Name, Value)</a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q1">T</a> = adaptthresh(<a href="#Q2">I</a>) 计算二维灰度图像 <code>I</code> 的局部自适应阈值。<code>adaptthresh</code> 函数基于每个像素邻域的局部均值强度（一阶统计量）选择阈值。阈值 T 可与 <code>imbinarize</code> 函数结合使用以将灰度图像转换为二值图像。</p>
+<p><a id="function2"></a>
+<a href="#Q1">T</a> = adaptthresh(<a href="#Q2">I</a>, <a href="#Q3">sensitivity</a>) 使用灵敏度因子计算局部自适应阈值，通过阈值化处理将更多像素归为前景。</p>
+<p><a id="function3"></a>
+T = adaptthresh(___, <a href="#Q4">Name, Value</a>) 使用名称-值对组计算局部自适应阈值，以控制阈值的各个方面。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q2"></a> I — 灰度图像</strong><br />
+二维数值矩阵 | 三维数值矩阵</p>
+<p>灰度图像或图像体，指定为二维数值矩阵或三维数值数组。
+<code>adaptthresh</code> 需要数据类型为 double 和 single 的图像的值在 [0, 1] 的范围内。如果 <code>I</code> 的值超出范围 [0, 1]，则可以使用 <code>rescale</code> 函数将值重新缩放到需要的范围。
+如果图像包含 Inf 或 NaN 值，则说明 <code>adaptthresh</code> 的行为未定义。 Inf 或 NaN 值的传播可能不会局限于 Inf 或 NaN 像素周围的邻域。</p>
+<p><strong>数据类型：</strong><code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> </p>
+<p><strong><a id="Q3"></a> sensitivity — 确定哪些像素被阈值化为前景像素</strong>
+默认值为0.5 | <code>[0,1]</code>范围内的数值</p>
+<p>确定哪些像素被阈值化为前景像素，指定为 [0, 1] 范围内的数字,一般默认为 0.5。高敏感度值导致更多的像素通过阈值化处理归为前景，但这会存在将一些背景像素也归为前景的风险。</p>
+<p><strong><a id="Q4"></a> 名称-值参数</strong><br />
+将可选的参量对组指定为 Name1, Value1,..., NameN, ValueN，其中 Name 是参量名称，Value 是对应的值。名称-值参量必须出现在其他参量后，但对各个参量对组的顺序没有要求。</p>
+<p><strong>示例：</strong> <code>T = adaptthresh(I, 0.4, "ForegroundPolarity", "dark")</code>; 指定前景比背景暗。</p>
+<p><strong>NeighborhoodSize — 用于计算每个像素周围局部统计量的邻域大小</strong>
+2*floor(size(I)/16)+1(默认) | 正数 | 由正数组成的二元素向量</p>
+<p>用于计算每个像素周围局部统计量的邻域大小，指定为正奇数或由正奇数组成的二元素向量，一般默认为 2*floor(size(I)/16)+1。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<p><strong>ForegroundPolarity — 确定哪些像素被视为前景像素</strong>
+"bright"(默认) | "dark"</p>
+<p>确定哪些像素被视为前景像素，使用以下项之一进行指定：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>意义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"bright"</td>
+<td style="text-align: left;">前景比背景亮</td>
+</tr>
+<tr>
+<td style="text-align: left;">"dark"</td>
+<td style="text-align: left;">前景比背景暗</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>char</code> | <code>string</code></p>
+<p><strong>Statistic — 用于计算局部阈值的统计量</strong>
+"mean"(默认) | "median" </p>
+<p>用于计算每个像素的局部阈值的统计量，指定为下列值之一：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>意义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"mean"</td>
+<td style="text-align: left;">邻域中的局部均值强度。这种方法也称为布拉德利方法<a href="#ref1">[1]</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">"median"</td>
+<td style="text-align: left;">邻域中的局部中位数，此统计量的计算可能会很慢，请考虑使用较小的邻域大小来更快地获得结果</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>char</code> | <code>string</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="Q1"></a> T — 归一化的强度值</strong> </p>
+<p>归一化的强度值，以与输入图像或图像体 <code>I</code> 大小相同的数值矩阵或数值数组形式返回。值被缩放到 [0, 1] 的范围内。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<h2>参考</h2>
+<p><a id="ref1"></a>
+[1] D. Bradley and G. Roth,<br />
+"Adapting thresholding using the integral image,"<br />
+<em>Journal of Graphics Tools</em>, vol. 12, no. 2, pp. 13–21, 2007.</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imbinarize/imbinarize.html">imbinarize</a> | <a 
+href="../otsuthresh/otsuthresh.html">otsuthresh</a> | <a 
+href="../graythresh/graythresh.html">graythresh</a> </p>
+</body>
+</html>

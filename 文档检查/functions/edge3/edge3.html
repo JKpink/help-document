@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>edge3</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>edge3</h2>
+<p>在 3-D 灰度体数据中查找边缘</p>
+<h2>简介</h2>
+<p><a href="#function3"><code>BW = edge3(V, "Sobel", thresh)</code></a><br />
+<a href="#function4"><code>BW = edge3(V, "Sobel", thresh, "nothinning")</code></a></p>
+<h2>用法</h2>
+<p><a id="function3"></a>
+<a href="#P1">BW</a> = edge3(<a href="#Q1">V</a>, "Sobel", <a href="#Q2">thresh</a>) 接受强度体数据或二值体数据 <code>V</code>，返回二值体数据 <code>BW</code>，其中边缘点位置的值为 1，其余位置的值为 0。Sobel 方法使用 Sobel 近似求导来检测边缘，它返回梯度达到最大值处的边缘点。所有强度不高于阈值 <code>thresh</code> 的边缘将被忽略。</p>
+<p><a id="function4"></a>
+<a href="#P1">BW</a> = edge3(<a href="#Q1">V</a>, "Sobel", <a href="#Q2">thresh</a> , "nothinning")通过跳过边缘细化步骤来加速算法。默认情况下（或指定 <code>"thinning"</code> 时）会进行边缘细化。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> V — 输入体数据</strong><br />
+3-D 数值数组</p>
+<p>输入体数据，指定为 3-D 数值数组。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q2"></a> thresh — 灵敏度阈值</strong><br />
+数值标量 | 2 元素数值行向量</p>
+<p>灵敏度阈值，根据所选方法指定为以下形式之一。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>阈值取值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sobel</td>
+<td>数值标量</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q3"></a> sigma — 高斯滤波器的标准差</strong><br />
+<code>sqrt(2)</code> （默认） | 数值标量 | 1×3 数值向量</p>
+<p>高斯平滑滤波器的标准差。对于各向同性体数据，指定为数值标量；对于各方向尺度不同的各向异性体数据，指定为 <code>[SigmaX SigmaY SigmaZ]</code> 形式的 1×3 数值向量。滤波器的大小根据 <code>sigma</code> 自动确定。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> BW — 检测到的边缘</strong><br />
+3-D 数值数组</p>
+<p>检测到的边缘，以与 <code>V</code> 相同大小的 3-D 数值数组形式返回。像素值为 1 表示边缘，像素值为 0 表示平坦区域。</p>
+<h2>提示</h2>
+<ul>
+<li>对于 Sobel 方法，默认进行边缘细化以得到更精确的单像素宽边缘；若需加快处理速度，可以使用 <code>"nothinning"</code> 选项跳过细化步骤。</li>
+</ul>
+<h2>算法</h2>
+<ul>
+<li><strong>Sobel 方法</strong>：使用 Sobel 算子近似计算梯度，然后通过寻找梯度局部最大值确定边缘位置。</li>
+</ul>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V3.0 推出  </p>
+<h2>相关主题</h2>
+<p><a href="../edge/edge.html">edge</a> | <a href="../imgradient3/imgradient3.html">imgradient3</a> </p>
+</body>
+</html>

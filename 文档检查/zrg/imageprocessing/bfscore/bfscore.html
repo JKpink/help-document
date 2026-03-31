@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>bfscore</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>bfscore</h2>
+<p>图像分割的轮廓匹配分数</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>score = bfscore(prediction, groundTruth)</code></a><br />
+<a href="#function2"><code>[score, precision, recall] = bfscore(prediction, groundTruth)</code></a><br />
+<a href="#function3"><code>[___]=bfscore(prediction,groundTruth,threshold)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q1">score</a> = bfscore(<a href="#Q4">prediction</a>, <a href="#Q5">groundTruth</a>)  计算预测分割结果 (prediction) 与真实分割结果 (groundTruth) 之间的 BF(Boundary F1) 轮廓匹配得分。prediction 和 groundTruth 可以是一对用于二值分割的逻辑数组，也可以是一对用于多类分割的标签数组或分类数组。</p>
+<p><a id="function2"></a>
+[<a href="#Q1">score</a>, <a href="#Q2">precision</a>, <a href="#Q3">recall</a>] = bfscore(<a href="#Q4">prediction</a>, <a href="#Q5">groundTruth</a>)  并返回预测图像相较于真实图像的精确率与召回率数值。</p>
+<p><a id="function3"></a>
+[ ___ ]=bfscore(<a href="#Q2">precesion</a>,<a href="#Q5">groundTruth</a>,<a href="#Q6">threshold</a>)  以指定阈值作为距离误差容限，判定边界点是否匹配，并据此计算BF分数。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q4"></a> prediction — 预测分割结果</strong><br />
+二维或三维逻辑数组、数值数组或分类数组</p>
+<p>预测分割结果，指定为二维或三维的逻辑数组、数值数组或分类数组。若 <code>prediction</code> 为数值数组，则表示标签数组，必须包含数据类型为 double 的非负整数。</p>
+<p><strong>数据类型：</strong> <code>logical</code> | <code>double</code> | <code>categorical</code></p>
+<p><strong><a id="Q5"></a> groundTruth — 真实分割标注</strong><br />
+二维或三维逻辑数组、数值数组或分类数组</p>
+<p>真实分割标注，指定为与预测尺寸和数据类型相同的二维或三维逻辑数组、数值数组或分类数组。若 <code>groundTruth</code> 为数值数组，则表示标签数组，必须包含数据类型为 double 的非负整数。</p>
+<p><strong>数据类型：</strong> <code>logical</code> | <code>double</code> | <code>categorical</code></p>
+<p><strong><a id="Q6"></a> threshold - 距离误差阈值</strong>
+正标量</p>
+<p>以像素为单位的距离误差容限阈值，须指定为正标量。该阈值用于判定边界点是否匹配。若没有指定此阈值，则默认取值为图像对角线长度的0.75%。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<h3>输出参量</h3>
+<p><strong><a id="Q1"></a> score — BF 分数</strong><br />
+数值标量 | 数值向量</p>
+<p>BF 分数，以数值标量或向量形式返回，其值范围在 [0, 1] 之间。分数为 1 表示 <code>prediction</code> 和 <code>groundTruth</code> 中对应类别的物体轮廓完全匹配。若输入数组为：</p>
+<ul>
+<li>
+<p>逻辑数组，<code>score</code> 为标量，表示前景的 <code>BF</code> 分数。</p>
+</li>
+<li>
+<p>标签数组或分类数组，<code>score</code> 为向量。<code>score</code> 中的第一个系数是第一个前景类别的 <code>BF</code> 分数，第二个系数是第二个前景类别的分数，依此类推。</p>
+</li>
+</ul>
+<p><strong><a id="Q2"></a> precision — 精确率</strong><br />
+数值标量 | 数值向量</p>
+<p>精确率，以数值标量或向量形式返回，其值范围在 [0, 1] 之间。每个元素表示对应前景类别中物体轮廓的精确率。</p>
+<p>精确率是指预测分割边界上足够接近真实分割边界的点数量与预测边界总长度的比值。换言之，精确率反映的是真正例检测所占的比例，而非假正例。</p>
+<p><strong><a id="Q3"></a> recall — 召回率</strong><br />
+数值标量 | 数值向量</p>
+<p>召回率，以数值标量或向量形式返回，其值范围在 [0, 1] 之间。每个元素表示对应前景类别中物体轮廓的召回率。</p>
+<p>召回率是指真实分割边界上足够接近预测分割边界的点数量与真实边界总长度的比值。换言之，召回率反映的是被正确检测到的真正例所占的比例，而非漏检的正例。</p>
+<p>​</p>
+<h2>参考</h2>
+<p>[1] Csurka G, Larlus D, Perronnin F. What is a good evaluation measure for semantic segmentation? Proceedings of the British Machine Vision Conference. 2013: 32.1-32.11.</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../jaccard/jaccard.html">jaccard</a> | <a 
+href="../dice/dice.html">dice</a> </p>
+</body>
+</html>

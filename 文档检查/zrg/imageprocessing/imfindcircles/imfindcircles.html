@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imfindcircles</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imfindcircles</h2>
+<p>使用 Hough 变换查找圆</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>centers = imfindcircles(A, radius)</code></a><br />
+<a href="#function2"><code>[centers, radii] = imfindcircles(A, radiusRange)</code></a><br />
+<a href="#function3"><code>[centers, radii] = imfindcircles(A, radiusRange, Name,Value)</code> </a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q1">centers</a> = imfindcircles(<a href="#Q3">A</a>, <a href="#Q4">radius</a>) 查找图像 <code>A</code> 中半径约等于 radius 的圆。输出 centers 是一个两列矩阵，其中包含图像中各圆中心的 (x,y) 坐标。<br />
+<a id="function2"></a>
+[<a href="#Q1">centers</a>, <a href="#Q2">radii</a>] = imfindcircles(<a href="#Q3">A</a>, <a href="#Q5">radiusRange</a>) 查找半径在 radiusRange 指定范围内的圆。附加输出参量 radii 包含与 centers 中每个圆心对应的估计半径。<br />
+<a id="function3"></a>
+[<a href="#Q1">centers</a>, <a href="#Q2">radii</a>] = imfindcircles(<a href="#Q3">A</a>,<a href="#Q5">radiusRange</a>, <a href="#Q6">Name, Value</a>)支持任何上述语法，且可使用一个或多个名称-值参量指定其他选项。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q3"></a> A — 输入图像</strong><br />
+灰度图像 | 彩色图像 | 二值图像</p>
+<p>输入图像是在其中检测圆形目标的图像，指定为灰度图像、彩色 (RGB) 图像或二值图像。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int16</code> | <code>uint8</code> | <code>uint16</code> | <code>logical</code></p>
+<p><strong><a id="Q4"></a> radius — 圆半径</strong><br />
+正数</p>
+<p>圆半径活要检测的圆形目标的近似半径，指定为正数。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<p><strong><a id="Q5"></a> radiusRange — 半径范围</strong><br />
+由正整数组成的二元素向量</p>
+<p>要检测的圆形目标的半径范围，指定为 [rmin rmax] 形式的由正整数组成的二元素向量，其中 rmin 小于 rmax。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<p><strong><a id="Q6"></a> 名称-值参数</strong></p>
+<p>将可选的参量对组指定为 Name1,Value1,...,NameN,ValueN，其中 Name 是参量名称，Value 是对应的值。名称-值参量必须出现在其他参量后，但对各个参量对组的顺序没有要求。</p>
+<p><strong>示例：</strong><br />
+centers = imfindcircles(A, radius, "ObjectPolarity", "bright") 在深色背景上指定亮色圆形目标。</p>
+<p><strong>ObjectPolarity — 目标极性</strong><br />
+"bright" (默认) | "dark"</p>
+<p>目标极性，指定为下表中的值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"bright"</td>
+<td style="text-align: left;">圆形目标比背景亮。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"dark"</td>
+<td style="text-align: left;">圆形目标比背景暗。</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sensitivity — 敏感度因子</strong><br />
+0.85 (默认) | [0, 1] 范围内的数值</p>
+<p>圆形霍夫变换累加器数组的敏感度因子，指定为范围 [0, 1] 内的数值。随着敏感度因子的增大，<code>imfindcircles</code> 会检测到更多圆形目标，包括弱圆形和部分模糊圆形。更高的敏感度值也会增加错误检测的风险。</p>
+<p><strong>EdgeThreshold — 边缘梯度阈值</strong><br />
+[0, 1] 范围内的数值</p>
+<p>用于确定图像中边缘像素的边缘梯度阈值，指定为范围 [0, 1] 内的数字。指定 0 可将阈值设置为零梯度幅值。指定 1 可将阈值设置为最大梯度幅值。阈值设置得越低，<code>imfindcircles</code> 检测到的圆形目标（具有弱边缘和强边缘）越多，随着阈值的增大，它会检测到较少的具有弱边缘的圆形。默认情况下，<code>imfindcircles</code> 使用函数 <a href="../graythresh/graythresh.html">graythresh</a> 自动选择边缘梯度阈值。</p>
+<h3>输出参数</h3>
+<p><strong><a id="Q1"></a> centers — 圆心坐标</strong><br />
+P×2 矩阵</p>
+<p>圆心坐标，返回为 P×2 矩阵，第一列中包含圆心的 x 坐标，第二列中包含 y 坐标。行数 P 是检测到的圆形的个数。centers 根据圆形的强度（从最强到最弱）排序。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q2"></a> radii — 估计半径</strong>  </p>
+<p>各圆心对应的估计半径，以列向量形式返回，<code>radii(j)</code> 处的半径值对应于以 <code>centers(j,:)</code> 为中心的圆形。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<h2>参考</h2>
+<p>[1] Atherton T J, Kerbyson D J. Size invariant circle detection. Image and Vision Computing, 1999, 17(11): 795-803.</p>
+<p>[2] Yuen H K, Princen J, Illingworth J, et al. Comparative study of Hough transform methods for circle finding. Image and Vision Computing, 1990, 8(1): 71-77.</p>
+<p>[3] Davies E R. Machine vision: theory, algorithms, practicalities. 3rd ed. Chapter 10. San Francisco: Morgan Kaufmann Publishers, 2005.</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../circles2mask/circles2mask.html">circles2mask</a> | <a 
+href="../hough/hough.html">hough</a> | <a 
+href="../houghpeaks/houghpeaks.html">houghpeaks</a> | <a 
+href="../houghlines/houghlines.html">houghlines</a> | <a
+href="../viscircles/viscircles.html">viscircles</a> </p>
+<h3>主题</h3>
+<p><a href="../检测和测量图像中的圆形目标/检测和测量图像中的圆形目标.html">检测和测量图像中的圆形目标</a> </p>
+</body>
+</html>

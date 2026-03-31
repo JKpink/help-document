@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tformarray</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>tformarray</h2>
+<p>对 N 维数组应用几何变换  </p>
+<h2>简介</h2>
+<p><a href="#function1">B = tformarray(A, T, R, tdims_A, tdims_B, tsize_B, tmap_B, F)</a>  </p>
+<h2>用法</h2>
+<p><a id="function1"></a> <a href="#P1">B</a> = tformarray(<a href="#P2">A</a>, <a href="#P3">T</a>, <a href="#P4">R</a>, <a href="#P5">tdims_A</a>, <a href="#P6">tdims_B</a>, <a href="#P7">tsize_B</a>, <a href="#P8">tmap_B</a>, <a href="#P9">F</a>) 数组 <code>A</code> 应用空间变换 <code>T</code>，生成数组 <code>B</code>。  </p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="P2"></a> A — 输入图像</strong><br />
+数值数组  </p>
+<p>输入图像，指定为数值数组。<code>A</code> 可以是实数数组或复数数组。  </p>
+<p><strong>数据类型：</strong><code>double</code> | <code>single</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>unit8</code> | <code>unit16</code> | <code>unit32</code>  </p>
+<p><strong><a id="P3"></a> T — 空间变换</strong>  <br />
+<code>TFORM</code> 空间变换结构体  </p>
+<p>空间变换，指定为 <code>TFORM</code> 空间变换结构体。通常可使用 <a href="../maketform/maketform.html">maketform</a>  </a> 函数来创建 <code>TFORM</code> 结构体。<br />
+<code>tformarray</code> 函数会利用 <code>T</code> 和 <a href="../tforminv/tforminv.html">tforminv</a>  </a> 函数，为输出变换下标空间中的每个位置计算其在输入变换下标空间中对应的位置。<code>tformarray</code> 函数通过 <a href="#P6">tdims_B</a> 和 <a href="#P7">tsize_B</a> 定义输入变换空间，通过 <a href="#P5">tdims_A</a> 和 <code>size(A)</code> 定义输出变换下标空间。<br />
+若 <code>T</code> 为空，则 <code>tformarray</code> 函数会作为直接重采样函数运行。此外，若 <a href="#P8">tmap_B</a> 满足以下情况：  </p>
+<ul>
+<li>非空： <code>tformarray</code> 函数会应用 <a href="#P4">R</a> 中定义的重采样器，计算 <code>tmap_B</code> 所定义的每个变换空间位置处的值。  </li>
+<li>为空： <code>tformarray</code> 函数会在输出变换下标网格的每个位置处应用重采样器。  </li>
+</ul>
+<p><strong>数据类型：</strong><code>struct</code>   </p>
+<p><strong><a id="P4"></a> R — 重采样器</strong><br />
+结构体  </p>
+<p>重采样器，指定为结构体。重采样器结构体定义了如何在指定位置对输入数组的值进行插值。<code>R</code> 是通过 <a href="../makeresampler/makeresampler.html">makeresampler</a>  </a> 函数创建，该函数支持精细控制沿每个维度的插值方式；同时，<code>makeresampler</code> 还会控制在靠近数组边缘附近进行插值时，要使用的输入数组值。  </p>
+<p><strong>数据类型：</strong><code>struct</code>   </p>
+<p><strong><a id="P5"></a> tdims_A — 输入变换维度</strong><br />
+有限正整数构成的行向量  </p>
+<p>输入变换维度，指定为有限正整数构成的行向量。<br />
+<code>tdims_A</code> 和 <a href="#P6">tdims_B</a> 用于指示输入数组与输出数组中哪些维度参与了空间变换。每个元素必须唯一。元素无需按递增顺序排列，但排列顺序至关重要 —— 该顺序定义了数组 <a href="#P2">A</a>、<a href="#P1">B</a> 的维度与变换 <code>T</code> 的输入空间、输出空间之间的精确对应关系。<br />
+tdims_A 长度必须等于 ndims_in，tdims_B 长度必须等于 ndims_out。<br />
+例如 : 若 <code>T</code> 是二维变换, tdims_A = (2 1) , tdims_B = [1 2]，则 <code>A</code> 的行、列维度分别对应变换输入空间的第2、第1维度；<code>B</code> 的行、列维度分别对应变换输出空间的第1、第2维度。   </p>
+<p><strong>数据类型：</strong><code>double</code>  </p>
+<p><strong><a id="P6"></a> tdims_B — 输出变换维度</strong><br />
+有限正整数构成的行向量  </p>
+<p>输出变换维度，指定为有限正整数构成的行向量。更多的信息请参考 <a href="#P5">tdims_A</a> 。  </p>
+<p><strong>数据类型：</strong><code>double</code>    </p>
+<p><strong><a id="P7"></a> tsize_B — 输出数组在变换维度上的大小</strong><br />
+有限正整数构成的行向量  </p>
+<p>输出数组在变换维度上的大小，指定为有限正整数构成的行向量。数组 <a href="#P1">B</a> 在非变换维度上的大小，直接沿用数组 <a href="#P2">A</a> 在对应维度上的大小。<br />
+例如：若 <a href="#P3">T</a> 是二维变换，size(A) = (480 640 3 10) , <a href="#P6">tdims_B</a> = (2 1) , tsize_B = (300 200) , 则最终 size(B) = (200 300 3 10)    </p>
+<p><strong>数据类型：</strong><code>double</code>   </p>
+<p><strong><a id="P8"></a> tmap_B — 输出空间中的点位置</strong><br />
+有限实值数组 | 空数组 []  </p>
+<p>输出空间中的点位置，指定为有限实值数组。 <code>tmap_B</code> 是一个可选参数，它提供了一种替代方式来指定输出数组 <a href="#P1">B</a> 的元素位置与输出变换空间中位置的对应关系。例如，可使用 <code>tmap_B</code> 来计算输出空间中任意一组位置处的图像扭曲结果。<br />
+若 <code>tmap_B</code> 非空，则 <code>tmap_B</code> 的大小为<br />
+[D₁ D₂ D₃ … Dₙ L] 
+其中 <code>N</code> 等于 <code>tdims_B</code> 的长度，且 <code>`tsize_B</code> 应设为空数组[]。<br />
+<code>L</code> 的值取决于变换 <code>T</code> 是否为空:  </p>
+<ul>
+<li>若 <code>T</code> 非空:则 <code>L</code> 等于 ndims_out，且 <code>tmap_B</code> 中每个 <code>L</code> 维点会通过 <code>T</code> 变换为输入空间中的位置。  </li>
+<li>若 <code>T</code> 为空，则 <code>L</code> 等于 tdims_A 的长度，且 <code>tmap_B</code> 中每个 <code>L</code> 维点会直接作为输入空间中的位置使用。  </li>
+</ul>
+<p><strong>数据类型：</strong><code>double</code>   </p>
+<p><strong><a id="P9"></a> F — 填充值</strong><br />
+数值标量 | 数值数组 | 空数组 []  </p>
+<p>填充值指定为数值标量、数值数组或空数组([])。填充值 <code>F</code> 中的填充值可用于以下三种场景：  </p>
+<ul>
+<li>使用<code>makersampler</code>创建可分离的重采样器，且其填充方法被设置为 <code>“fill”</code> 或 <code>“bound”</code>。  </li>
+<li>当使用支持 <code>“fill”</code> 或 <code>“bound”</code> 填充方法的自定义重采样器时（其行为由自定义配置决定）。</li>
+<li>当从 <a href="#P1">B</a> 的变换维度到 <a href="#P2">A</a> 的变换维度的映射在部分点上被故意设置为未定义时。这些点会在输入变换空间中，通过 <a href="#P8">tmap_B</a> 或 <a href="../tforminv/tforminv.html">tforminv</a>  </a> 的输出中的 <code>NaN</code> 进行编码。  </li>
+</ul>
+<p>在前两种场景中，填充值用于计算那些映射到输入数组外部或边缘附近的输出位置的值。当输出位置映射到输入数组极外侧时，填充值会被直接复制到输出数组 <code>B</code> 中，更多关于 <code>“fill”</code> 或 <code>“bound”</code> 的信息请参考 <a href="../makeresampler/makeresampler.html">makeresampler</a>  </a>。  </p>
+<p>根据 <code>F</code> 的类型，行为如下 :  </p>
+<ul>
+<li>标量(包含 <code>NaN</code> ) : 该值会在所有非变换维度上复制复用。  </li>
+<li>非标量数组 : 其大小由输入数组 <code>A</code> 的非变换维度大小决定。具体来说，如果 <code>k</code> 是 <code>A</code> 的第 <code>J</code> 个非变换维度，则 size(F, J) 必须等于 size(A, K) 或1。为方便使用，<code>tformarray</code> 会自动在大小为1的维度上复制 <code>F</code> ，最终使 size(F, J) 与 size(A, K) 一致。  </li>
+<li>空数组 []：<code>tformarray</code> 会使用默认填充值0。  </li>
+</ul>
+<p>示例：假设 <code>A</code> 是10张 RGB 图像，尺寸为 200 × 200 × 3 × 10 (行×列×通道×图像序号)，<code>T</code> 是二维变换，<a href="#P5">tdims_A</a> 和 <a href="#P6">tdims_B</a> 均为 (1 2) (即对每张图像的每个颜色平面应用相同的二维变换)。此时 <code>F</code> 有以下几种选择：  </p>
+<ul>
+<li>标量：所有10张图像的所有颜色平面使用同一个填充值。  </li>
+<li>3 × 1 向量：[R G B]，为每张图像的对应颜色平面指定 RGB 填充值。  </li>
+<li>1 × 10 向量：为10张图像分别指定不同的填充值，每张图像的三个颜色平面复用该值。  </li>
+<li>3 × 10 矩阵：为10张图像分别指定不同的 RGB 填充颜色。  </li>
+</ul>
+<p><strong>数据类型：</strong><code>double</code>   </p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> B— 变换后的图像</strong><br />
+数值数组   </p>
+<p>变换后的图像，指定为数值数组。  </p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../findbounds/findbounds.html">findbounds</a> | <a 
+href="../makeresampler/makeresampler.html">makeresampler</a> | <a 
+href="../maketform/maketform.html">maketform</a> | <a<br />href="../imwarp/imwarp.html">imwarp</a>                                            </p>
+</body>
+</html>

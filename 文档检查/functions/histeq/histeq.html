@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>histeq</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>histeq</h2>
+<p>使用直方图均衡增强对比度</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>J = histeq(I)</code></a><br />
+<a href="#function2"> <code>J = histeq(I, n)</code></a><br />
+<a href="#function3"> <code>J = histeq(I, hgram)</code></a>  </p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q4">J</a> = histeq(<a href="#Q1">I</a>) 变换灰度图像 <code>I</code>，以使输出灰度图像 J 的直方图具有 64 个 bin 且大致平坦。<br />
+<a id="function2"></a>
+<a href="#Q4">J</a> = histeq(<a href="#Q1">I</a>, <a href="#Q3">n</a>) 变换灰度图像 I，以使输出灰度图像 <code>J</code> 具有 n 个 bin 的直方图大致平坦。当 n 远小于 <code>I</code> 中的离散灰度级数时，<code>J</code> 的直方图更平坦。并且函数 <code>histeq</code> 仅支持灰度图像，对彩色图像进行直方图均衡时需要分别对 3 个通道进行直方图均衡化。<br />
+<a id="function3"></a>
+<a href="#Q4">J</a> = histeq(<a href="#Q1">I</a>, <a href="#Q2">hgram</a>)  变换灰度图像 <code>I</code>，以使输出灰度图像 <code>J</code> 的直方图近似匹配目标直方图 <code>hgram</code>。输出图像的直方图中 bin 的数量等于 length(hgram)。  </p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> I — 灰度图像</strong><br />
+数值数组  </p>
+<p>灰度图像，指定为任意维度的数值数组。</p>
+<p><strong>数据类型:</strong> <code>uint8</code></p>
+<p><strong><a id="Q2"></a> hgram — 目标直方图</strong><br />
+数值向量  </p>
+<p>目标直方图，指定为数值向量。目标直方图必须在适当的范围内具有等间距 bin 跨度强度值。强度值范围取决于输入图像的数据类型。</p>
+<ul>
+<li>double - [0, 1]。  </li>
+<li>uint8 - [0, 255]。</li>
+</ul>
+<p>默认情况下，目标直方图中 bin 的数量等于 length(hgram)。</p>
+<p><strong>数据类型:</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="Q3"></a> n — 离散灰度级的数量</strong><br />
+64 (默认) | 正整数  </p>
+<p>离散灰度级的数量，指定为正整数。</p>
+<p><strong>数据类型:</strong> <code>single</code> | <code>double</code>   </p>
+<h3>输出参数</h3>
+<p><strong><a id="Q4"></a> J — 变换后的灰度图像</strong><br />
+数值数组  </p>
+<p>变换后的灰度图像，以大小和类与输入图像 <code>I</code> 相同的数值数组形式返回。</p>
+<p><strong>数据类型:</strong>  <code>double</code></p>
+<h2>算法</h2>
+<p>当您提供目标直方图 hgram 时，<code>histeq</code> 选择灰度变换 T 以最小化</p>
+<p>∣c<sub>1</sub>(T(k))−c<sub>0</sub>(k)∣,</p>
+<p>c<sub>0</sub> 是输入图像 <code>I</code> 的累积直方图，c<sub>1</sub> 是 hgram 中所有强度 k 上的累积总和。这种最小化受以下条件的限制：</p>
+<ul>
+<li>T 必须单调</li>
+<li>c<sub>1</sub>(T(a)) 对 c<sub>0</sub>(a) 的过冲不能超过 a 处直方图计数之间差距的一半。</li>
+</ul>
+<p><code>histeq</code> 使用变换 b = T(a) 将 X（或颜色图）中的灰度级映射到其新值。</p>
+<p>如果您不指定 <code>hgram</code>，则 <code>histeq</code> 创建平坦的 <code>hgram</code>，</p>
+<p>hgram = ones(1,n)*prod(size(A))/n;  </p>
+<p>然后应用前面的算法。</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../adapthisteq/adapthisteq.html">adapthisteq</a> | <a
+href="../brighten/brighten.html">brighten</a> | <a 
+href="../imadjust/imadjust.html">imadjust</a> | <a 
+href="../imhist/imhist.html">imhist</a> </p>
+</body>
+</html>

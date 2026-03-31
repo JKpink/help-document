@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imregdemons</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imregdemons</h2>
+<p>估计对齐两幅二维或三维图像的位移场  </p>
+<h2>简介</h2>
+<p><a href="#function1"><code>[D, moving_reg] = imregdemons(moving, fixed)</code></a><br />
+<a href="#function2"><code>[D, moving_reg] = imregdemons(moving, fixed, N)</code></a><br />
+<a href="#function3"><code>[D, moving_reg] = imregdemons(__, Name, Value)</code></a>  </p>
+<h2>用法</h2>
+<p><a id="function1"></a>[<a href="#P1">D</a>, <a href="#P2">moving_reg</a>] = imregdemons(<a href="#P3">moving</a>, <a href="#P4">fixed</a>) 估计一个位移场 <code>D</code>，用于将待配准图像 <code>moving</code> 与参考图像 <code>fixed</code> 对齐。每个像素位置的位移向量，会将待配准图像网格中的位置映射到参考图像中的对应位置。根据位移场 <code>D</code> 变形并通过线性插值重新采样，输出待配准图像的变形版本。<br />
+<a id="function2"></a>[<a href="#P1">D</a>, <a href="#P2">moving_reg</a>] = imregdemons(<a href="#P3">moving</a>, <a href="#P4">fixed</a>, <a href="#P5">N</a>) 指定迭代计算的次数 <code>N</code> 。该函数不使用收敛判断准则，因此会确保运行指定次数（或默认次数）的迭代。  <br />
+<a id="function3"></a>[<a href="#P1">D</a>, <a href="#P2">moving_reg</a>] = imregdemons(__,  <a href="#P6">Name, Value</a>) 通过名称 - 值对参数控制权重计算的相关环节，完成待配准图像的配准。  </p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="P3"></a> moving — 待配准图像</strong><br />
+二维灰度图像 | 三维灰度图像  </p>
+<p>待配准的图像，指定为二维或三维灰度图像。  </p>
+<p><strong>数据类型：</strong> <code>logical</code> | <code>double</code> | <code>single</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code>  </p>
+<p><strong><a id="P4"></a> fixed — 目标姿态下的参考图像</strong> <br />
+二维灰度图像 | 三维灰度图像  </p>
+<p>目标姿态下的参考图像，指定为二维或三维灰度图像。  </p>
+<p><strong>数据类型：</strong> <code>logical</code> | <code>double</code> | <code>single</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code>  </p>
+<p><strong><a id="P5"></a> N — 迭代次数</strong><br />
+100（默认） | 正整数标量或向量  </p>
+<p>迭代次数，指定为正整数标量或向量。 <br />
+当你指定为向量时，则 <code>N</code> 代表每个金字塔层级对应的的迭代次数。例如，如果有 3 个金字塔层级，你可以指定向量 (100, 50, 25)，这表示在最低分辨率层级执行 100 次迭代，在中间金字塔层级执行 50 次，在最后一个迭代层级执行 25 次。由于低分辨率层级的处理速度更快，因此在低分辨率层级运行更多迭代、在金字塔的高分辨率层级运行更少迭代，有助于提升性能。  </p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> |  <code>uint32</code>  </p>
+<h3><a id="P6"></a> 名称-值参数</h3>
+<p>将可选的参量对组指定为 Name1,Value1,...,NameN,ValueN，其中 <code>Name</code> 是参量名称，<code>Value</code> 是对应的值。名称-值参量必须出现在其他参量后，但对各个参量对组的顺序没有要求。  </p>
+<p><strong>示例</strong> : 'AccumulatedFieldSmoothing' , 1.5 表示每次迭代应用标准差为 1.5 的高斯平滑。  </p>
+<p><strong>AccumulatedFieldSmoothing — 每次迭代的平滑参数</strong><br />
+1.0（默认）| 正标量  </p>
+<p><code>AccumulatedFieldSmoothing</code> 是用于控制每次迭代平滑操作的名称 - 值对参数，需以 <code>AccumulatedFieldSmoothing</code> 和一个数值形式的逗号分割对来指定；该参数用于调控类扩散正则化的强度，<code>imregdemons</code> 会在每次迭代时，以该参数指定的标准差对累计位移场进行高斯平滑正则化，参数取值越大，输出位移场越平滑；取值越小，输出形变越局部化，典型的取值范围为 [0.5,3.0] ;若指定了多个金字塔层级，各金字塔层级所使用的高斯平滑标准差将保持一致，</p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong>PyramidLevels — 要使用的多分辨率图像金字塔层级数</strong><br />
+3.0（默认）| 正整数  </p>
+<p>要使用的多分辨率图像金字塔层级数，需以 <code>PyramidLevels</code> 和一个正整数组成的逗号分隔对形式设置。  </p>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong>DisplayWaitbar — 显示进度条</strong><br />
+<code>true</code>（默认）| <code>false</code>  </p>
+<p>显示进度条以指示配准进度，需以 <code>DisplayWaitbar</code> 和 <code>true</code> 或 <code>false</code> 组成的逗号分割对形式设置。当设为 <code>true</code> 时，对于耗时较长的运算，<code>imregdemons</code> 会显示进度条；若要禁止显示进度条，需将<code>DisplayWaitbar</code> 设为 <code>false</code>。  </p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> |<code>uint8</code> | <code>uint16</code> |  <code>uint32</code> | <code>unit64</code> | <code>logical</code>      </p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> D — 位移场</strong><br />
+数值数组  </p>
+<p>位移场，指定为数值数组。位移值的单位为像素。  </p>
+<ul>
+<li>若参考图像 <a href="#P4">fixed</a> 是尺寸为 m × n 的二维灰度图像，则位移场数组的大小为 m × n × 2。其中，D( : , : , 1) 存储 <code>x</code> 轴方向的位移，D( : , : , 2 ) 存储 <code>y</code> 轴方向的位移。  </li>
+<li>若参考图像 <code>fixed</code> 是尺寸为 m × n × p 的三维灰度图像，则位移场数组的大小为 m × n × p × 3。其中，D( : , : , : , 1 ) 存储 <code>x</code> 轴方向的位移，D( : , : , : , 2 ) 存储 <code>y</code> 轴方向的位移，D( : , : , : , 3 ) 存储 <code>z</code> 轴方向的位移。  </li>
+</ul>
+<p><strong>数据类型：</strong> <code>double</code>  </p>
+<p><strong><a id="P2"></a> moving_reg — 配准后的图像</strong><br />
+二维或三维灰度图像  </p>
+<p>配准后的图像，指定为二维或三维灰度图像。该图像会根据位移场 <code>D</code> 完成变形，并通过线性插值重新采样得到。  </p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imregcorr/imregcorr.html">imregcorr</a> | <a<br />href="../imregister/imregister.html">imregister</a> | <a<br />href="../imregtform/imregtform.html">imregtform</a> | <a <br />href="../imshowpair/imshowpair.html">imshowpair</a> | <a<br />href="../imwarp/imwarp.html">imwarp</a> | <a<br />href="../imregdeform/imregdeform.html">imregdeform</a> | <a    <br />href="../imreggroupwise/imreggroupwise.html">imreggroupwise</a>  </p>
+</body>
+</html>

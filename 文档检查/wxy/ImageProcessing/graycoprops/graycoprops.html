@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>graycoprops</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>graycoprops</h2>
+<p>根据灰度共生矩阵计算特征</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>stats = graycoprops(glcm, properties)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q1">stats</a> = graycoprops(<a href="#Q2">glcm</a>, <a href="#Q3">properties</a>) 从灰度共生矩阵 (glcm) 中计算属性中指定的统计信息。</p>
+<p>灰度共生矩阵 (GLCM) 通过 graycoprops 进行归一化，使其元素之和等于 1。归一化后的 GLCM 中每个元素 (r, c) 是图像中具有定义的空间关系且灰度值为 r 和 c 的像素对的联合概率。graycoprops 使用归一化的 GLCM 来计算属性。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q2"></a>glcm — GLCM</strong><br />
+非负整数矩阵 | 非负整数矩阵</p>
+<p>灰度共生矩阵 (GLCM)，指定为以下之一:
+ - 对于单个 GLCM，是一个 m×n 非负整数矩阵；
+ - 对于 p 个灰度共生矩阵 (GLCM)，是一个 m×n×p 的非负整数数组。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q3"></a>properties — 统计属性</strong><br />
+"all"（默认） | 逗号分隔的列表字符串标量或字符向量 | 字符串标量或字符向量的单元数组 | 字符串数组 | 空格分隔的字符向量</p>
+<p>从 GLCM 派生的图像的统计属性，指定为逗号分隔的字符串标量或字符向量列表、字符串标量或字符向量的单元数组、字符串数组、空格分隔的字符向量或 “all”。您可以指定此表中列出的任何属性名称。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>属性</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+<th style="text-align: left;"><strong>公式</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"Contrast"</td>
+<td style="text-align: left;">返回整个图像中像素与其邻域之间强度对比的度量。<br> Range = [0 (size(GLCM,1)-1)^2]<br>对比度在恒定图像中为 0。<br>对比度属性也被称为方差和惯性。</td>
+<td style="text-align: left;">$\sum_{i,j} |i-j|^2P(i,j)$</td>
+</tr>
+<tr>
+<td style="text-align: left;">"Correlation"</td>
+<td style="text-align: left;">返回一个衡量整个图像中像素与其邻居相关程度的指标。<br>Range = [-1 1]<br>对于完全正相关或负相关的图像，其相关系数为1或-1。<br>而对于恒定图像（即所有像素值相同的图像），其相关系数则为 NaN（非数值）。</td>
+<td style="text-align: left;">$\sum_{i,j} \frac{(i - \mu_i)(j - \mu_j) p(i,j)}{\sigma_i \sigma_j}$</td>
+</tr>
+<tr>
+<td style="text-align: left;">"Energy"</td>
+<td style="text-align: left;">返回 GLCM 中元素平方的和。<br>Range = [0 1]<br>能量 (Energy) 在恒定图像中为 1。<br>该能量属性也被称为均匀度、能量均匀性以及角二阶矩。</td>
+<td style="text-align: left;">$\sum_{i,j} P(i,j)$</td>
+</tr>
+<tr>
+<td style="text-align: left;">"Homogeneity"</td>
+<td style="text-align: left;">返回一个值，该值衡量灰度共生矩阵 (GLCM) 中元素分布与 GLCM 对角线的接近程度。<br>Range = [0 1]<br>对于对角线方向的灰度共生矩阵 (GLCM)，其同质性值为1。</td>
+<td style="text-align: left;">$\sum_{i,j} \frac{p(i,j)}{1 + |i-j|}$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>char</code>|<code>string</code>|<code>cell</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="Q1"></a>stats — 从 GLCM 衍生的统计量</strong><br />
+结构</p>
+<p>从灰度共生矩阵 (GLCM) 得出的统计信息，以结构体形式返回，其中字段由  <a href="#Q3"><code>properties</code></a> 指定,每个字段包含一个 1×p 数组，p 是 <a href="#Q2"><code>glcm</code></a> 中的灰度共生矩阵数量。例如，如果 <code>glcm</code> 是一个 8×8×3 数组且属性为 “Energy”，那么 <code>stats</code> 是一个包含字段 <code>Energy</code> 的结构体，该字段包含一个 1×3 数组。</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../graycomatrix/graycomatrix.html">graycomatrix</a></p>
+</body>
+</html>

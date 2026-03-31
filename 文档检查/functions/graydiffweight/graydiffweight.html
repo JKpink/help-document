@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>graydiffweight</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>graydiffweight</h2>
+<p>根据灰度强度差异计算图像像素的权重</p>
+<h2>语法</h2>
+<p><a href="#function1"><code>W = graydiffweight(I, refGrayVal)</code></a><br />
+<a href="#function2"><code>W = graydiffweight(I, mask)</code></a><br />
+<a href="#function3"><code>W = graydiffweight(I, C, R)</code></a><br />
+<a href="#function4"><code>W = graydiffweight(I, C, R, P)</code></a><br />
+<a href="#function5"><code>W = graydiffweight(__, Name, Value)</code></a></p>
+<h2>说明</h2>
+<p><a id="function1"></a>
+<a href="#Q1">W</a> = graydiffweight(<a href="#Q2">I</a>, <a href="#Q3">refGrayVal</a>) 计算灰度图像 <code>I</code> 中每个像素的像素权重，该权重是像素强度与由标量 <code>refGrayVal</code> 指定的参考灰度强度之间的差的绝对值，选择一个具有代表性的参考灰度强度值，以表示您要分割的目标。权重返回在数组 <code>W</code> 中，其大小与输入图像 <code>I</code> 相同。像素的权重与其灰度强度差的绝对值成反比。如果差异较小(强度值接近 <code>refGrayVal</code>)，则权重值较大，如果差异较大(强度值与 <code>refGrayVal</code> 相差甚远)，则权重值较小。<br />
+<a id="function2"></a>
+<a href="#Q1">W</a> = graydiffweight(<a href="#Q2">I</a>, <a href="#Q4">mask</a>) 计算像素权重，其中参考灰度值为图像I中所有在掩码 <code>mask</code> 里标记为逻辑真（true）的像素的灰度值均值。与前一种语法中使用单一参考灰度值相比，使用多个像素的均值作为参考灰度值往往更有效。<br />
+<a id="function3"></a>
+<a href="#Q1">W</a> = graydiffweight(<a href="#Q2">I</a>, <a href="#Q5">C</a>, <a href="#Q6">R</a>)  基于二维灰度图像 <code>I</code> 中选定像素的灰度均值作为参考值，计算像素权重。选定像素的列索引和行索引分别为 <code>C</code> 和 <code>R</code> 。<br />
+<a id="function4"></a>
+<a href="#Q1">W</a> = graydiffweight(<a href="#Q2">I</a>, <a href="#Q5">C</a>, <a href="#Q6">R</a>, <a href="#Q7">P</a>) 基于三维灰度体图像I中选定体素的灰度均值作为参考值，计算体素权重。选定体素的列索引、行索引和平面索引分别为 <code>C</code> 、<code>R</code> 和 <code>P</code> 。<br />
+<a id="function5"></a>
+<a href="#Q1">W</a> = graydiffweight(__, <a href="#Q8">Name, Value</a>)  使用额外的名称值参数控制权重计算的相关特性。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q2"></a> I — 灰度图像</strong><br />
+二维或三维数值数组</p>
+<p>灰度图像，指定为二维或三维数组矩阵。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>uint8</code> | <code>uint16</code> | <code>int32</code> | <code>uint32</code></p>
+<p><strong><a id="Q3"></a> refGrayVal — 参考灰度强度值</strong><br />
+标量</p>
+<p>参考灰度强度值，指定为标量。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q4"></a> mask — 参考灰度强度掩码</strong>
+逻辑数组</p>
+<p>参考灰度强度掩码，指定为与 <code>I</code> 大小相同的逻辑数组。</p>
+<p><strong>数据类型：</strong><code>logical</code></p>
+<p><strong><a id="Q5"></a> C — 参考像素（或体素）的列索引</strong>
+正整数向量</p>
+<p>参考像素的列索引，指定为正整数向量。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q6"></a> R — 参考像素（或体素）的行索引</strong>
+正整数向量</p>
+<p>参考像素的行索引，指定为正整数向量。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q7"></a> P — 参考体素的平面索引</strong>
+正整数向量</p>
+<p>参考体素的平面索引，指定为正整数向量。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q8"></a> Name,Value — 命名值参数</strong>
+可选参数对需按 Name1, Value1,…, NameN, ValueN 的形式指定，其中 Name 为参数名称，Value 为对应的参数值。名称 - 值对参数必须出现在其他参数之后，但参数对的排列顺序不影响执行结果。</p>
+<p><strong>RolloffFactor —— 输出权重衰减因子</strong>
+默认值为0.5 | 正数</p>
+<p>输出权重衰减因子，指定为正数。该参数控制权重值随像素强度值与参考灰度值的绝对差值变化的衰减速率。将像素强度值与参考灰度值的绝对差值与权重值的关系绘制成二维曲线时，区域边缘处的像素强度值可能会平缓变化，形成平缓的斜率；而在分割后的图像中，你可能希望边缘的界定更清晰。通过设置该衰减因子，可控制 “像素强度值开始变化位置处” 的权重值曲线斜率：若指定较高的衰减因子值，平滑区域边缘附近的输出权重值会急剧下降；若指定较低的值，平滑区域边缘附近的输出权重值衰减会更平缓。该参数的建议取值范围为 [0.5  4]。</p>
+<p><strong>数据类型：</strong><code>double</code></p>
+<p><strong>GrayDifferenceCutoff — 灰度强度绝对差值阈值</strong>
+默认为Inf | 非负数</p>
+<p>灰度强度绝对差值阈值：指定为一个非负数值。该参数的默认值为Inf（无穷大），即表示不设置硬截断阈值。</p>
+<p>当你应用该阈值时，会强抑制那些像素强度值远大于或远小于参考值的像素权重。<code>graydiffweight</code> 会将这些像素的权重值赋值为最小权重值。</p>
+<p><strong>数据类型：</strong><code>double</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="Q1"></a> W — 权重数组</strong><br />
+数值数组</p>
+<p>权重数组，指定为与输入图像 <code>I</code> 大小相同的数值数组。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a 
+href="../gradientweight/gradientweight.html">gradientweight</a> | <a 
+href="../graydist/graydist.html">graydist</a> </p>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imwarp</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imwarp</h2>
+<p>对图像应用几何变换</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>B = imwarp(A, tform)</code></a><br />
+<a href="#function2"><code>[B,RB] = imwarp(A, RA, tform)</code></a><br />
+<a href="#function3"><code>[___] = imwarp(___, interp)</code></a><br />
+<a href="#function4"><code>[___] = imwarp(___, Name, Value)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a> <a href="#P1">B</a> = imwarp(<a href="#Q1">A</a>, <a href="#Q2">tform</a>) 根据几何变换 <code>tform</code> 来变换数值或逻辑图像 <code>A</code>。该函数在 <code>B</code> 中返回变换后的图像。<br />
+<a id="function2"></a> [<a href="#P1">B</a>, <a href="#P2">RB</a>] = imwarp(<a href="#Q1">A</a>, <a href="#Q3">RA</a>, <a href="#Q2">tform</a>) 变换由图像数据 <code>A</code> 指定的空间参照图像及其关联的空间参照对象 <code>RA</code> 进行变换。输出由图像数据 <code>B</code> 指定的空间参照图像及其关联的空间参照对象 <code>RB</code> 。<br />
+<a id="function3"></a> [___] = imwarp(___, <a href="#Q4">interp</a>) 指定使用的插值方法。<br />
+<a id="function4"></a> [___] = imwarp(___, <a href="#Q5">Name, Value</a>) 指定名称-值参量来控制几何变换的各个方面。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> A — 要变换的图像</strong><br />
+数值数组 | 逻辑数组   </p>
+<p>要变换的图像，指定为任意维度的数值或逻辑数组。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q2"></a> tform — 几何变换</strong><br />
+几何变换对象  </p>
+<p>几何变换，指定为表中列出的几何变换对象：</p>
+<table>
+<thead>
+<tr>
+<th>几何变换对象</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二维线性几何变换</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../transltform2d/transltform2d.html">transltform2d</a>  </a></td>
+<td>平移变换</td>
+</tr>
+<tr>
+<td><a href="../rigidtform2d/rigidtform2d.html">rigidtform2d</a>  </a></td>
+<td>刚性变换：平移和旋转</td>
+</tr>
+<tr>
+<td><a href="../simtform2d/simtform2d.html">simtform2d</a>  </a></td>
+<td>相似变换：平移、旋转和各向同性缩放</td>
+</tr>
+<tr>
+<td><a href="../affinetform2d/affinetform2d.html">affinetform2d</a>  </a></td>
+<td>仿射变换：平移、旋转、各向异性缩放、反射和剪切</td>
+</tr>
+<tr>
+<td><a href="../projtform2d/projtform2d.html">projtform2d</a>  </a></td>
+<td>投影变换</td>
+</tr>
+<tr>
+<td>三维线性几何变换</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../transltform3d/transltform3d.html">transltform3d</a>  </a></td>
+<td>平移变换</td>
+</tr>
+<tr>
+<td><a href="../rigidtform3d/rigidtform3d.html">rigidtform3d</a>  </a></td>
+<td>刚性变换：平移和旋转</td>
+</tr>
+<tr>
+<td><a href="../simtform3d/simtform3d.html">simtform3d</a>  </a></td>
+<td>相似变换：平移、旋转和各向同性缩放</td>
+</tr>
+<tr>
+<td><a href="../affinetform3d/affinetform2、3d.html">affinetform3d</a>  </a></td>
+<td>仿射变换：平移、旋转、各向异性缩放、反射和剪切</td>
+</tr>
+<tr>
+<td>非线性几何变换</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PiecewiseLinearTransformation2D/PiecewiseLinearTransformation2D.html">PiecewiseLinearTransformation2D</a>  </a></td>
+<td>分段线性变换</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>如果 <code>tform</code> 为二维并且 <a href="#Q1">A</a> 有两个以上的维度（例如对于RGB图像），则 <code>imwarp</code> 会将相同的二维变换应用于沿更高维度的所有二维平面。</li>
+<li>如果 <code>tform</code> 为三维，则 <code>A</code> 必须为三维图像体。</li>
+</ul>
+<p><strong><a id="Q3"></a> RA — 要变换的图像的空间参照信息</strong><br />
+<code>imref2d</code> 对象 | <code>imref3d</code> 对象  </p>
+<p>要变换的图像的空间参照信息，对于二维变换指定为 <a href="../imref2d/imref2d.html">imref2d</a>  </a> 对象，对于三维变换指定为 <a href="../imref3d/imref3d.html">imref3d</a>  </a> 对象。</p>
+<p><strong><a id="Q4"></a> interp — 使用的插值的类型</strong><br />
+"nearest" | "linear" | "cubic"  </p>
+<p>使用的插值的类型，指定为下列值之一：  </p>
+<table>
+<thead>
+<tr>
+<th>插值方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"nearest"</code></td>
+<td>最近邻点插值。赋给输出像素的值就是输入点所在像素的值，不考虑其他像素。</td>
+</tr>
+<tr>
+<td><code>"linear"</code></td>
+<td>线性插值。线性插值是数值和逻辑图像的默认插值方法。</td>
+</tr>
+<tr>
+<td><code>"cubic"</code></td>
+<td>三次插值。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>char</code> | <code>string</code></p>
+<h3><a id="Q5"></a> 名称-值参数</h3>
+<p>将可选的参量对组指定为 Name1, Value1, ..., NameN, ValueN，其中 <code>Name</code> 是参量名称，<code>Value</code>是对应的值。名称-值参量必须出现在其他参量后，但对各个参量对组的顺序没有要求。</p>
+<p><strong>OutputView — 输出图像的大小和位置</strong><br />
+<code>imref2d</code> 对象 | <code>imref3d</code> 对象  </p>
+<p>输出图像在世界坐标系中的大小和位置，指定为 <a href="../imref2d/imref2d.html">imref2d</a>  </a> 或 <a href="../imref3d/imref3d.html">imref3d</a>  </a> 空间参照对象。对象具有定义输出图像大小和输出图像在世界坐标系中位置的属性。
+可以使用 <a href="../affineOutputView/affineOutputView.html">affineOutputView</a>  </a> 函数创建输出视图。</p>
+<p><strong>FillValues — 填充值</strong><br />
+数值标量 | 数值数组 | 字符串标量 | 字符向量   </p>
+<p>当输出图像落在输入图像之外时的填充值，指定为表中的值之一。如果输出像素对应的位置经逆变换后完全处于输入图像边界之外，<code>imwarp</code> 将对该输出像素使用填充值。<br />
+数值和逻辑图像的默认填充值为 0。  </p>
+<table>
+<thead>
+<tr>
+<th>图像类型</th>
+<th>变换维度</th>
+<th>填充值的格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二维灰度或逻辑图像</td>
+<td>二维</td>
+<td>数值标量</td>
+</tr>
+<tr>
+<td>二维彩色图像或二维多光谱图像</td>
+<td>二维</td>
+<td>数值标量，包含 c 个元素的数值向量，为 c 个通道中的每个通道指定一个填充值。对于彩色图像，通道数 c 为 3。</td>
+</tr>
+<tr>
+<td>包含p个二维图像的序列</td>
+<td>二维</td>
+<td>数值标量，c × p 数值矩阵。对于灰度图像，通道数 c 为 1，对于彩色图像为 3。</td>
+</tr>
+<tr>
+<td>N维图像</td>
+<td>二维</td>
+<td>数值标量，数值数组，其大小与输入图像 A 的维度 3 至 N 相匹配。例如，如果 A 是 200 × 200 × 10 × 3，则 <code>FillValues</code> 可以是 10 × 3 数组。</td>
+</tr>
+<tr>
+<td>三维灰度或逻辑图像</td>
+<td>二维</td>
+<td>数值标量</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例:</strong> 255 表示用白色像素填充 <code>uint8</code> 图像<br />
+<strong>示例:</strong> 1 表示用白色像素填充 <code>double</code> 图像<br />
+<strong>示例:</strong> [0 1 0] 表示用绿色像素填充 <code>double</code> 彩色图像<br />
+<strong>示例:</strong> 对于一个包含两个 <code>double</code> 彩色图像的序列，[0 1 0; 0 1 1] 表示用绿色像素填充第一个图像，用青色像素填充第二个图像。</p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> B — 变换后的图像</strong> <br />
+数值数组 | 逻辑数组  </p>
+<p>变换后的图像，指定为与输入图像 <a href="#Q1">A</a> 具有相同数据类型的数值或逻辑数组。</p>
+<p><strong><a id="P2"></a> RB — 变换后图像的空间参照信息</strong><br />
+<code>imref2d</code> 对象 | <code>imref3d</code> 对象  </p>
+<p>变换后图像的空间参照信息，指定为 <a href="../imref2d/imref2d.html">imref2d</a>  </a> 或 <a href="../imref3d/imref3d.html">imref3d</a>  </a> 空间参照对象。</p>
+<h2>提示</h2>
+<ul>
+<li>如果您要对一批大小相同的图像应用相同的几何变换，请考虑使用 <a href="../warper/warper.html">warper</a>  </a> 对象和 <a href="../warp/warp.html">warp</a>  </a> 函数。与 <code>imwarp</code> 相比，<code>Warper</code> 对象能够显著加快中小型图像批量的变换速度，但对于较大图像的加速效果会递减。</li>
+</ul>
+<h2>版本历史</h2>
+<p>在北太天元数字图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../Warper/Warper.html">Warper</a> | <a
+href="../affineOutputView/affineOutputView.html"> affineOutputView</a> | <a 
+href="../imregister/imregister.html">imregister</a> | <a 
+href="../imregtform/imregtform.html">imregtform</a> | <a 
+href="../imregdemons/imregdemons.html">imregdemons</a> | <a 
+href="../imtranslate/imtranslate.html">imtranslate</a> | <a
+href="../randomWindow2d/randomWindow2d.html">randomWindow2d</a> | <a 
+href="../centerCropWindow2d/centerCropWindow2d.html">centerCropWindow2d </a></p>
+</body>
+</html>

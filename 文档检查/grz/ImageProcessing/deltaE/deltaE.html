@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>deltaE</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>deltaE</h2>
+<p>基于 CIE76 标准的色差</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>dE = deltaE(I1, I2)</code></a><br />
+<a href="#function2"> <code>dE = deltaE(I1, I2, "isInputLab", isLab)</code></a>  </p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#P1">dE</a> = deltaE(<a href="#Q1">I1</a>, <a href="#Q2">I2</a>) 使用 CIE76 标准计算两个彩色图像、一个彩色图像与参考颜色，或者两组颜色之间的颜色差异。该函数默认颜色位于 sRGB 色彩空间。<br />
+<a id="function1"></a>
+<a href="#P1">dE</a> = deltaE(<a href="#Q1">I1</a>, <a href="#Q2">I2</a>, "isInputLab", <a href="#Q3">isLab</a>) 指定颜色是在 sRGB 色彩空间还是 L*a*b* 色彩空间中。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> I1 — 第一组颜色数据</strong><br />
+1×3 数值向量 | c×3 数值矩阵 | 数值数组</p>
+<p>第一组颜色数据，指定为以下格式之一。</p>
+<ul>
+<li>一个 1×3 的数值向量，表示参考颜色。</li>
+<li>一个 c×3 的数值矩阵，表示一组包含 c 种颜色的颜色集。</li>
+<li>一个 m×n×3 的数值数组，表示彩色图像。</li>
+<li>一个多维数值数组，例如 m×n×3×p 数组，表示一批彩色图像。第三维必须对应于颜色通道，并且必须有 3 个通道。</li>
+</ul>
+<p>如果 <a href="#Q2">I2</a> 不是参考颜色，则 <code>I1</code> 必须是参考颜色，或者是一个与 <code>I2</code> 大小相同的数值数组。<br />
+<code>I1</code> 和 <code>I2</code> 必须处于相同的色彩空间。<code>deltaE</code> 函数默认 <code>I1</code> 和 <code>I2</code> 位于 sRGB 色彩空间。如果 <code>I1</code> 和 <code>I2</code> 处于 L*a*b* 色彩空间，则需要将 <code>isLab</code> 参数指定为 1。L*a*b* 色彩值只能是单精度（single）或双精度（double）数据类型。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>uint8</code> | <code>uint16</code></p>
+<p><strong><a id="Q2"></a> I2 — 第二组颜色数据</strong><br />
+1×3 数值向量 | c×3 数值矩阵 | 数值数组</p>
+<p>第二组颜色数据，指定为以下格式之一。</p>
+<ul>
+<li>一个 1×3 的数值向量，表示参考颜色。</li>
+<li>一个 c×3 的数值矩阵，表示一组包含 c 种颜色的颜色集。</li>
+<li>一个 m×n×3 的数值数组，表示彩色图像。</li>
+<li>一个多维数值数组，例如 m×n×3×p 数组，表示一批彩色图像。第三维必须对应于颜色通道，并且必须有 3 个通道。</li>
+</ul>
+<p>如果 <a href="#Q1">I1</a> 不是参考颜色，则 <code>I2</code> 必须是参考颜色，或者是一个与 <code>I1</code> 大小相同的数值数组。
+<code>I1</code> 和 <code>I2</code> 必须处于相同的色彩空间。<code>deltaE</code> 函数默认 <code>I1</code> 和 <code>I2</code> 位于 sRGB 色彩空间。如果 <code>I1</code> 和 <code>I2</code> 实际上处于 L*a*b* 色彩空间，则需要将 <code>isLab</code> 参数指定为 1。L*a*b* 色彩值只能是单精度（single）或双精度（double）数据类型。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>uint8</code> | <code>uint16</code></p>
+<p><strong><a id="Q3"></a> isLab — 颜色值在 L*a*b* 色彩空间中</strong><br />
+0（默认）| 1  </p>
+<p>颜色值在 L*a*b* 色彩空间中，指定为数值 0 或 1。</p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> dE — 颜色差异</strong><br />
+数值矩阵 | c×1 列向量 | 数值标量 | 数值数组</p>
+<p>颜色差异（delta E），以下形式之一返回。</p>
+<ul>
+<li>一个 m×n 的数值矩阵。该矩阵表示两幅彩色图像之间，或者一幅彩色图像与参考颜色之间的逐像素颜色差异。</li>
+<li>一个 c×1 的数值列向量。该向量表示两组 c 种颜色之间，或者一组 c 种颜色与参考颜色之间的颜色差异。</li>
+<li>一个数值标量，表示两个参考颜色之间的颜色差异。</li>
+<li>一个多维数值数组。该数组表示两批彩色图像之间，或者一批彩色图像与参考颜色之间的逐像素颜色差异。第三维的长度为 1，表示颜色差异。</li>
+</ul>
+<p>如果 <a href="#Q1">I1</a> 或 <a href="#Q2">I2</a> 的数据类型为双精度（double），则 <code>dE</code> 的数据类型为双精度（double）。否则，<code>dE</code> 的数据类型为单精度（single）。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> </p>
+<h2>技巧</h2>
+<ul>
+<li>为了提高颜色差异计算的准确性，可以使用 <a href="../imcolordiff/imcolordiff.html">imcolordiff</a> 函数。该函数遵循 CIE94 和 CIEDE2000 标准，并提供参数以改善不同应用场景下的视觉均匀性。</li>
+</ul>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imcolordiff/imcolordiff.html">imcolordiff</a> | <a 
+href="../colorangle/colorangle.html">colorangle</a> </p>
+<!-- | <a 
+href="../measureColor/measureColor.html">measureColor</a>  -->
+</body>
+</html>

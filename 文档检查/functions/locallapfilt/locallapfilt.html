@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>locallapfilt</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>locallapfilt</h2>
+<p>快速局部拉普拉斯滤波</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>B = locallapfilt(I, sigma, alpha)</code></a><br />
+<a href="#function2"> <code>B = locallapfilt(I, sigma, alpha, beta)</code></a><br />
+<a href="#function3"> <code>B = locallapfilt(___, Name, Value)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q6">B</a> = locallapfilt(<a href="#Q1">I</a>, <a href="#Q2">sigma</a>, <a href="#Q3">alpha</a>) 函数使用边缘感知的快速局部拉普拉斯滤波器，对灰度图像或 RGB 图像 <code>I</code> 进行滤波处理。参数 <code>sigma</code> 用于表征图像I中边缘的幅值；参数 <code>alpha</code> 用于控制图像细节的平滑程度。 <br />
+<a id="function2"></a>
+<a href="#Q6">B</a> = locallapfilt(<a href="#Q1">I</a>, <a href="#Q2">sigma</a>, <a href="#Q3">alpha</a>, <a href="#Q4">beta</a>) 函数通过参数 <code>beta</code> 控制图像 <code>A</code> 的动态范围，进而完成滤波操作。<br />
+<a id="function3"></a>
+<a href="#Q6">B</a> = locallapfilt(___,<a href="#Q5">Name, Value</a>)   函数通过名称 - 值对组参数，对滤波器的高级特性进行控制。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> I — 待滤波图像</strong><br />
+二维灰度图像 | 二维 RGB 图像</p>
+<p>待滤波的图像，指定为二维灰度图像或二维 RGB 图像。</p>
+<p><strong>数据类型</strong>：<code>single</code> | <code>int8</code> | <code>int16</code> |  <code>uint8</code> | <code>uint16</code> </p>
+<p><strong><a id="Q2"></a> sigma — 边缘幅值</strong><br />
+非负数</p>
+<p>边缘的幅值，指定为非负数。对于整型图像，以及取值范围为[0, 1]的单精度图像，sigma的取值范围应为[0, 1]；对于取值范围为[a, b]的单精度图像，sigma的取值范围也应设为[a, b]。</p>
+<p><strong>数据类型</strong>：<code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> </p>
+<p><strong><a id="Q3"></a> alpha — 细节平滑度</strong><br />
+正数 </p>
+<p>图像细节的平滑程度，指定为正数。alpha的典型取值范围为[0.01, 10]。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>取值情况</strong></th>
+<th style="text-align: left;"><strong>功能描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">alpha &lt; 1</td>
+<td style="text-align: left;">增强输入图像的细节，在不影响边缘、不引入光晕伪影的前提下，有效提升图像的局部对比度</td>
+</tr>
+<tr>
+<td style="text-align: left;">alpha &gt; 1</td>
+<td style="text-align: left;">平滑输入图像的细节，同时保留清晰的边缘</td>
+</tr>
+<tr>
+<td style="text-align: left;">alpha = 1</td>
+<td style="text-align: left;">保持输入图像的细节不变</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型</strong>：<code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<p><strong><a id="Q4"></a> beta — 动态范围</strong><br />
+1（默认值） | 非负数</p>
+<p>图像的动态范围，指定为非负数。beta的典型取值范围为[0, 5]，该参数用于调整图像 A 的动态范围。<br />
+| <strong>取值情况</strong> | <strong>功能描述</strong> |<br />
+|:-|:-|<br />
+|beta &lt; 1|降低图像中边缘的幅值，在不影响细节的前提下，有效压缩图像的动态范围|<br />
+|beta &gt; 1|扩展图像的动态范围|<br />
+|beta = 1|保持图像的动态范围不变（默认设置）|</p>
+<p><strong>数据类型</strong>：<code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code>  </p>
+<p><strong><a id="Q5"></a> 名称 — 值参数</strong><br />
+指定可选的、成对出现的参数，格式为Name1, Value1,...,NameN, ValueN，其中Name为参数名，Value为对应的参数值。名称 - 值对组参数必须放在其他参数之后，且参数对的顺序不影响运行结果。<br />
+<strong>示例</strong>：B = locallapfilt(I,sigma,alpha,"ColorMode","luminance")</p>
+<p><strong>ColorMode — RGB 图像滤波方式</strong><br />
+"luminance"（默认值）|"separate"</p>
+<p>RGB 图像的滤波方式，指定为以下取值之一。该参数对灰度图像无效。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>取值</strong></th>
+<th style="text-align: left;"><strong>功能描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"luminance"</td>
+<td style="text-align: left;">滤波前，先将输入的 RGB 图像转换为灰度图；滤波完成后，再重新赋予图像色彩。此方式可在不改变颜色的前提下调整图像对比度</td>
+</tr>
+<tr>
+<td style="text-align: left;">"separate"</td>
+<td style="text-align: left;">函数对 RGB 图像的每个颜色通道分别独立执行滤波操作</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型</strong>：<code>char</code> | <code>string</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="Q6"></a> B — 滤波后图像</strong>  <br />
+数值数组</p>
+<p>滤波后的图像，以数值数组形式返回，其尺寸和数据类型与输入图像 A 完全一致。</p>
+<p><strong>数据类型</strong>： <code>single</code> | <code>double</code></p>
+<h2>参考文献</h2>
+<p>[1] Paris, Sylvain, Samuel W. Hasinoff, and Jan Kautz. Local Laplacian filters: edge-aware image processing with a Laplacian pyramid, ACM Trans. Graph. 30.4 (2011): 68.<br />
+[2] Aubry, Mathieu, et al. Fast local laplacian filters: Theory and applications. ACM Transactions on Graphics (TOG) 33.5 (2014): 167.</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V3.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../localcontrast/localcontrast.html">localcontrast</a> </p>
+</body>
+</html>

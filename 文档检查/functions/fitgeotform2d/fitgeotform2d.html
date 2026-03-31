@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>fitgeotform2d</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>fitgeotform2d</h2>
+<p>根据控制点对拟合二维几何变换</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>tform = fitgeotform2d(movingPoints, fixedPoints, tformType)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a> <a href="#P1">tform</a> = fitgeotform2d(<a href="#Q1">movingPoints</a>, <a href="#Q2">fixedPoints</a>, <a href="#Q3">tformType</a>) 根据控制点对组 <code>movingPoints</code> 和 <code>fixedPoints</code> 拟合 <code>tformType</code> 类型的线性几何变换。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> movingPoints — 移动图像中的控制点</strong><br />
+m × 2 矩阵</p>
+<p>移动图像中的控制点，指定为 m × 2 矩阵。每行指定一个控制点的 (x, y) 坐标。  </p>
+<p>变换类型会影响控制点对组的最小数量。例如，一个没有翻转的相似变换需要至少 2 个控制点对组。</p>
+<p>示例：movingPoints = (11 11; 41 71); </p>
+<p><strong>数据类型：</strong> <code>double</code> | <code>single</code></p>
+<p><strong><a id="Q2"></a> fixedPoints — 固定图像中的控制点</strong><br />
+m × 2 矩阵</p>
+<p>固定图像中的控制点，指定为 m × 2 矩阵。每行指定一个控制点的 (x, y) 坐标。</p>
+<p>示例：fixedPoints = (14 44; 70 81);</p>
+<p><strong>数据类型：</strong><code>double</code> | <code>single</code></p>
+<p><strong><a id="Q3"></a> tformType — 线性变换的类型</strong><br />
+<code>"similarity"</code> | <code>"reflectivesimilarity"</code> | <code>"affine"</code> | <code>"projective"</code></p>
+<p>线性变换的类型，指定为 <code>"similarity"</code>、<code>"reflectivesimilarity"</code>、<code>"affine"</code> 或 <code>"projective"</code>。</p>
+<p><strong>数据类型：</strong><code>char</code> | <code>string</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> tform — 几何变换</strong><br />
+几何变换对象</p>
+<p>几何变换，指定为下表中列出的几何变换对象：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>变换类型</strong></th>
+<th style="text-align: left;"><strong>几何变换对象</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>"similarity"</code></td>
+<td style="text-align: left;"><a href="../simtform2d/simtform2d.html">simtform2d</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"reflectivesimilarity"</code></td>
+<td style="text-align: left;"><a href="../affinetform2d/affinetform2d.html">affinetform2d</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"affine"</code></td>
+<td style="text-align: left;"><a href="../affinetform2d/affinetform2d.html">affinetform2d</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"projective"</code></td>
+<td style="text-align: left;"><a href="../projtform2d/projtform2d.html">projtform2d</a></td>
+</tr>
+</tbody>
+</table>
+<h2>详细信息</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>变换类型</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+<th style="text-align: left;"><strong>控制点对组的最小数量</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>"similarity"</code></td>
+<td style="text-align: left;">当移动图像中的形状保持不变，但图像因某种程度的平移、旋转和各向同性缩放而失真时，请使用此变换。直线保持笔直，平行线仍保持平行。</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"reflectivesimilarity"</code></td>
+<td style="text-align: left;">与 <code>"similarity"</code> 相同，只是增加了翻转（可选）。</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"affine"</code></td>
+<td style="text-align: left;">当移动图像中的形状呈现剪切或各向异性缩放时，请使用此变换。直线保持笔直，平行线仍保持平行，但矩形变为平行四边形。</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"projective"</code></td>
+<td style="text-align: left;">当场景出现倾斜时，请使用此变换。直线保持笔直，但平行线向消失点收敛。</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imwarp/imwarp.html">imwarp</a> | <a 
+href="../cpselect/cpselect.html">cpselect</a> | <a 
+href="../fitgeotform3d/fitgeotform3d.html">fitgeotform3d</a></p>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imshowpair</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imshowpair</h2>
+<p>将 2 幅图像合成显示</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>obj = imshowpair(A, B)</code></a><br />
+<a href="#function2"><code>obj = imshowpair(A, RA, B, RB)</code></a><br />
+<a href="#function3"><code>obj = imshowpair(___, method)</code></a><br />
+<a href="#function4"><code>obj = imshowpair(___, Name, Value)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a> <a href="#P1">obj</a> = imshowpair(<a href="#Q1">A</a>, <a href="#Q2">B</a>) 返回一个合成 RGB 图像 <code>obj</code>，以不同色带叠加显示 <code>A</code> 和 <code>B</code>。若两图尺寸不一致，<code>imshowpair</code> 会自动在较小图像的右侧与下侧进行零填充以实现两个图像大小相同。默认情况下，两幅图像的强度值独立进行归一化缩放。<br />
+<a id="function2"></a> <a href="#P1">obj</a> = imshowpair(<a href="#Q1">A</a>, <a href="#Q3">RA</a>, <a href="#Q2">B</a>, <a href="#Q4">RB</a>) 使用 <code>RA</code> 和 <code>RB</code> 中提供的空间参照信息，显示图像 <code>A</code> 和 <code>B</code> 之间的差异。<code>RA</code> 和 <code>RB</code> 是空间参照对象。<br />
+<a id="function3"></a> <a href="#P1">obj</a> = imshowpair(___, <a href="#Q5">method</a>) 通过 <code>method</code> 参数指定融合可视化方法。<br />
+<a id="function4"></a> <a href="#P1">obj</a> = imshowpair(___, <a href="#Q6">Name, Value</a>) 支持任何上述语法，且可使用一个或多个名称-值参数对指定其他附加项。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> A — 要显示的图像</strong><br />
+灰度图像 | 真彩色图像 | 二值图像</p>
+<p>要显示的图像，指定为灰度、真彩色或二值图像。</p>
+<p><strong><a id="Q2"></a> B — 要显示的图像</strong><br />
+灰度图像 | 真彩色图像 | 二值图像</p>
+<p>要显示的图像，指定为灰度、真彩色或二值图像。</p>
+<p><strong><a id="Q3"></a> RA — 关于输入图像的空间参照信息</strong><br />
+空间参照对象</p>
+<p>关于输入图像的空间参照信息，指定为空间参照对象，属于 <code>imref2d</code> 类。</p>
+<p><strong><a id="Q4"></a> RB — 关于输入图像的空间参照信息</strong><br />
+空间参照对象</p>
+<p>关于输入图像的空间参照信息，指定为空间参照对象，属于 <code>imref2d</code> 类。</p>
+<p><strong><a id="Q5"></a> method — 显示组合图像的可视化方法</strong><br />
+"falsecolor"（默认）| "blend" | "diff" | "montage"</p>
+<p>显示组合图像的可视化方法，指定为以下值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"falsecolor"</td>
+<td style="text-align: left;">用不同色带叠加 <code>A</code> 和 <code>B</code>。灰色区域表示图像具有相同强度的位置。彩色区域表示图像强度值不同的位置。也可以选择使用 ColorChannels 参量指定显示颜色。该函数将 RGB 图像转换为灰度，然后以假彩色显示。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"blend"</td>
+<td style="text-align: left;">使用 Alpha 混合叠加 <code>A</code> 和 <code>B</code>。显示的强度是两个图像的均值。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"checkerboard"</td>
+<td style="text-align: left;">使用来自 <code>A</code> 和 <code>B</code> 的交替矩形区域显示图像。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"diff"</td>
+<td style="text-align: left;">显示 <code>A</code> 和 <code>B</code> 的差异图像。该函数在计算差异图像之前会将 RGB 图像转换为灰度图像。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"montage"</td>
+<td style="text-align: left;">将 <code>A</code> 和 <code>B</code> 在同一图窗中并排放置。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong><code>char</code> | <code>string</code></p>
+<h3><a id="Q6"></a> 名称-值参数</h3>
+<p>将可选的参量对组指定为Name1, Value1, ... , NameN, ValueN，其中 Name 是参量名称，Value 是对应的值。名称-值参量必须出现在其他参量后，但对各个参量对组的顺序没有要求。<br />
+示例："Scaling","joint" 将 <code>A</code> 和 <code>B</code> 的强度值作为一个单一数据集一起缩放。</p>
+<p><strong>ColorChannels — 每个输入图像的输出颜色通道</strong><br />
+"green-magenta"（默认）| [R G B] | "red-cyan"</p>
+<p>每个输入图像的输出颜色通道，指定为下表中的值之一。当 <a href="#Q5">method</a> 指定为 "falsecolor" 时，此参量仅影响可视化。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>选项</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">[R G B]</td>
+<td style="text-align: left;">三元向量，用于指定合成图像中红、绿、蓝三个输出通道分别对应哪个输入图像。R、G、B的取值为 1（应用于第一个输入图像）、2（应用于第二个输入图像）和0（不应用于任何输入图像）。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"red-cyan"</td>
+<td style="text-align: left;">向量 [1 2 2] 的快捷方式，适用于红色/青色立体浮雕。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"green-magenta"</td>
+<td style="text-align: left;">向量 [2 1 2] 的快捷方式，这是高对比度选项，非常适合多种颜色色盲患者。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpolation — 插值方法</strong><br />
+"nearest"（默认）| "bilinear"</p>
+<p>缩放图像时使用的插值方法，指定为以下值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>方法</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"nearest"</td>
+<td style="text-align: left;">最近邻点插值（默认值）</td>
+</tr>
+<tr>
+<td style="text-align: left;">"bilinear"</td>
+<td style="text-align: left;">双线性插值</td>
+</tr>
+</tbody>
+</table>
+<!-- **Parent — 图像对象的父级**  
+坐标区对象 
+
+由 imshowpair 创建的图像对象的父级，指定为坐标区对象。-->
+
+<p><strong>Scaling — 强度缩放选项</strong><br />
+"independent"（默认）| "joint" | "none"</p>
+<p>强度缩放选项，指定为下列值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>选项</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"independent"</td>
+<td style="text-align: left;">彼此独立地缩放 <code>A</code> 和 <code>B</code> 的强度值。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"joint"</td>
+<td style="text-align: left;">将两幅图像视为同一数据整体进行强度归一化。<br>该模式特别适用于单模态图像的配准可视化：如果一个图像包含的填充值在另一个图像的动态范围之外，联合缩放可有效抑制填充值对全局对比度的干扰，确保有效区域获得最佳可视化对比。</td>
+</tr>
+<tr>
+<td style="text-align: left;">"none"</td>
+<td style="text-align: left;">不进行缩放。</td>
+</tr>
+</tbody>
+</table>
+<h3>输出参数</h3>
+<p><strong><a id="P1"></a> obj — 两个图像的可视化</strong><br />
+图像对象</p>
+<p>两个图像的可视化，返回为一个图像对象。</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imfuse/imfuse.html">imfuse</a> | <a 
+href="../imblend/imblend.html">imblend</a> | <a 
+href="../imregister/imregister.html">imregister</a> | <a 
+href="../imshow/imshow.html">imshow</a> | <a 
+href="../montage/montage.html">montage</a> </p>
+<!-- | <a 
+href="../imtransform/imtransform.html">imtransform</a>  -->
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>deconvlucy</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>deconvlucy</h2>
+<p>使用 Lucy-Richardson（露西 - 理查森）算法对图像进行去模糊处理</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>J = deconvlucy(I, psf)</code></a>  </p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q4">J</a> = deconvlucy(<a href="#Q1">I</a>, <a href="#Q2">psf</a>)  用于复原图像 <code>I</code>，该图像因与点扩散函数（PSF）卷积而退化，也可能叠加了加性噪声。该算法基于泊松统计，最大化复原后图像 <code>J</code> 是原始图像 <code>I</code> 实例的似然概率。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> I — 模糊图像</strong><br />
+数值数组</p>
+<p>模糊图像：指定为任意维度的数值数组。更多信息，请参见<a href="#提示">提示</a>。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int16</code> | <code>uint8</code> | <code>uint16</code> | <code>logical</code></p>
+<p><strong><a id="Q2"></a> psf — 点扩散函数</strong><br />
+数值数组</p>
+<p>点扩散函数：指定为数值数组。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int16</code> | <code>uint8</code> | <code>uint16</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="Q4"></a> J — 去模糊后的图像</strong><br />
+数值数组 | 1x4 单元数组</p>
+<p>去模糊后的图像：返回为数值数组或 1×4 元胞数组。<code>J</code>（若 <code>J</code> 为元胞数组则为 <code>J{1}</code>）与 <code>I</code> 的数据类型相同。有关将 <code>J</code> 以元胞数组形式返回以支持中断迭代的详细信息，请参阅<a href="#提示">提示</a>。</p>
+<h2>提示</h2>
+<ul>
+<li>您可以使用 <code>deconvlucy</code> 执行接续上一次反卷积中断位置的反卷积操作。要使用此功能，需将输入图像 <code>I</code> 以元胞数组 <code>{I}</code> 的形式传入。此时 <code>deconvlucy</code> 函数会以元胞数组形式返回输出图像 <code>J</code>，您可将该元胞数组作为输入传入下一次 <code>deconvlucy</code> 调用。输出元胞数组 <code>J</code> 包含四个元素：</li>
+</ul>
+<p>​   <code>J{1}</code> 包含原始图像 <code>I</code>。</p>
+<p>​   <code>J{2}</code> 包含最后一次迭代的结果。</p>
+<p>​   <code>J{3}</code> 包含倒数第二次迭代的结果。</p>
+<p>​   <code>J{4}</code> 是由迭代算法生成的数组。</p>
+<ul>
+<li>
+<p>输出图像 <code>J</code> 可能会出现算法中使用的离散傅里叶变换所引入的振铃效应。要减轻振铃效应，可在调用 <code>deconvlucy</code> 前执行 <code>I = edgetaper(I,psf)</code>。</p>
+</li>
+<li>
+<p><code>deconvlucy</code> 会将点扩散函数（PSF）转换为 <code>double</code> 类型，且不进行归一化处理。</p>
+</li>
+<li>
+<p><code>deconvlucy</code> 返回的输出图像数值范围可能超出输入图像的数值范围。</p>
+</li>
+</ul>
+<h2>参考</h2>
+<p>[1] Hanisch R J, White R L, Gilliland R L.Deconvolutions of Hubble Space Telescope images and spectra//Jansson P A. Deconvolution of images and spectra. 2nd ed. CA: Academic Press, 1997.</p>
+<p>[2] Biggs D S C, Andrews M.Acceleration of iterative image restoration algorithms. Applied Optics, 1997, 36(8).</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../deconvblind/deconvblind.html">deconvblind</a> | <a href="../deconvreg/deconvreg.html">deconvreg</a> | <a 
+href="../deconvwnr/deconvwnr.html">deconvwnr</a> | <a 
+href="../edgetaper/edgetaper.html">edgetaper</a> | <a 
+href="../otf2psf/otf2psf.html">otf2psf</a> | <a 
+href="../padarray/padarray.html">padarray</a> | <a 
+href="../psf2otf/psf2otf.html">psf2otf</a> </p>
+</body>
+</html>

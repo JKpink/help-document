@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>bwdist</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>bwdist</h2>
+<p>二值图像的距离变换</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>D = bwdist(BW)</code></a><br />
+<a href="#function2"> <code>[D, idx] = bwdist(BW)</code></a><br />
+<a href="#function3"> <code>[D, idx] = bwdist(BW, method)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q1">D</a> = bwdist(<a href="#Q2">BW</a>) 计算二值图像 <a href="#Q2"><code>BW</code></a> 的欧几里得距离变换。对于 <a href="#Q2"><code>BW</code></a> 中的每个像素，距离变换会指定一个数值，该数值表示该像素与 <a href="#Q2"><code>BW</code></a> 中最近的非零像素之间的距离。<br />
+<a id="function2"></a>
+[<a href="#Q1">D</a>, <a href="#Q4">idx</a>]  = bwdist(<a href="#Q2">BW</a>) 还以索引数组 <a href="#Q4"><code>idx</code></a> 形式计算最近像素图，<a href="#Q4"><code>idx</code></a> 的每个元素都包含 <a href="#Q2"><code>BW</code></a> 的最近非零像素的线性索引。最近像素图也称为最近邻变换（Nearest Neighbor Transform, NNT） 或特征变换（Feature Transform, FT）。
+<a id="function3"></a><br />
+[<a href="#Q1">D</a>, <a href="#Q4">idx</a>]  = bwdist(<a href="#Q2">BW</a>, <a href="#Q3">method</a>) 使用 <a href="#Q3"><code>method</code></a> 指定的替代距离度量来计算距离变换。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q2"></a>BW — 二值图像</strong><br />
+数值数组 | 逻辑数组</p>
+<p>二值图像，指定为任意维度的数值或逻辑数组。对于数值输入，任何非零像素都被视为 1(true)。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q3"></a>method — 距离度量</strong><br />
+'euclidean'（默认）| 'chessboard' | 'cityblock' | 'quasi-euclidean'</p>
+<p>距离度量，指定为下列值之一:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>方法</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">'chessboard'</td>
+<td style="text-align: left;">在二维空间中，(x, y) 和 (a, b) 之间的棋盘距离是 $\max(|x-a|,|y-b|)$</td>
+</tr>
+<tr>
+<td style="text-align: left;">'cityblock'</td>
+<td style="text-align: left;">在二维空间中，(x, y)和 (a, b) 之间的城市街区距离（曼哈顿距离）是 $|x-a|-|y-b|$</td>
+</tr>
+<tr>
+<td style="text-align: left;">'euclidean'</td>
+<td style="text-align: left;">在二维空间中，(x, y)和 (a, b) 之间的欧几里得距离是 $\sqrt{(x-a)^2+(y-a)^2}$</td>
+</tr>
+<tr>
+<td style="text-align: left;">'quasi-euclidean'</td>
+<td style="text-align: left;">在二维空间中，(x, y) 和 (a, b) 之间的准欧几里得距离为，如果$|x-a|&gt;|y-b|$,则距离为$|x-a|+(\sqrt2-1)|y-b|$，否则为$(\sqrt2-1)|x-a|+|y-b|$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>char</code> | <code>string</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="Q1"></a>D — 距离数组</strong><br />
+数值数组</p>
+<p>距离，以与 <a href="#Q2"><code>BW</code></a> 大小相同的数值数组形式返回。BW 中的非零像素（目标像素）对应的 D 中元素值为 0，零像素对应值为到最近非零像素的距离，由距离度量 <a href="#Q3"><code>method</code></a> 定义。</p>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<p><strong><a id="Q4"></a>idx — 索引数组</strong><br />
+数值数组</p>
+<p>索引数组，以与 <code>BW</code> 大小相同的数值数组形式返回。<code>idx</code> 的每个元素都包含 <code>BW</code> 的最近非零像素的线性索引。idx 的类取决于输入图像中的元素数，并按如下方式确定:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>类</strong></th>
+<th style="text-align: left;"><strong>范围</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">uint32</td>
+<td style="text-align: left;">$numel(BW)&lt;=2^{32}-1$</td>
+</tr>
+<tr>
+<td style="text-align: left;">uint64</td>
+<td style="text-align: left;">$numel(BW)&gt;=2^{32}$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>uint32</code> | <code>uint64</code></p>
+<h2>提示</h2>
+<ul>
+<li><code>bwdist</code> 使用快速算法来计算精确欧几里得距离变换，尤其是在二维情况下。其他方法主要是出于教学原因而提供。然而，对于多维输入图像，尤其是那些具有许多非零元素的图像，替代距离变换有时要快得多。</li>
+</ul>
+<h2>算法</h2>
+<ul>
+<li>对于欧几里得距离变换，<code>bwdist</code> 使用快速算法。<a href="#Q5">[1]</a></li>
+<li>对于城市街区、棋盘和准欧几里得距离变换，<code>bwdist</code> 使用两遍序贯扫描算法（Rosenfeld-Pfaltz 算法）。<a href="#Q6">[2]</a></li>
+<li>不同距离测度是通过在扫描中使用不同权重集来实现的，如 <a href="#Q7">[3]</a> 中所述。</li>
+</ul>
+<h2>参考文献</h2>
+<p><a id="Q5"></a>[1] Maurer, Calvin, Rensheng Qi, et al. A Linear Time Algorithm for Computing Exact Euclidean Distance Transforms of Binary Images in Arbitrary Dimensions[J]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2003, 25(2): 265-270.<br />
+<a id="Q6"></a>[2] Rosenfeld, Azriel, John Pfaltz. Sequential operations in digital picture processing[J]. Journal of the Association for Computing Machinery, 1966, 13(4): 471-494.<br />
+<a id="Q7"></a>[3] Paglieroni, David. Distance Transforms: Properties and Machine Vision Applications[J]. Computer Vision, Graphics, and Image Processing: Graphical Models and Image Processing, 1992, 54(1): 57-58.  </p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V2.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../bwulterode/bwulterode.html">bwulterode</a> | <a 
+href="../watershed/watershed.html">watershed</a></p>
+</body>
+</html>

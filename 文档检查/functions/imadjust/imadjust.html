@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imadjust</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imadjust</h2>
+<p>调整图像亮度值或颜色表</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>J = imadjust(I)</code></a><br />
+<a href="#function2"> <code>J = imadjust(I, [low_in high_in])</code></a><br />
+<a href="#function3"> <code>J = imadjust(I, [low_in high_in], [low_out high_out])</code></a><br />
+<a href="#function4"> <code>J = imadjust(I, [low_in high_in], [low_out high_out], gamma)</code></a><br />
+<a href="#function5"><code>J = imadjust(RGB,[low_in high_in],___)</code></a>  </p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q6">J</a> = imadjust(<a href="#Q1">I</a>)  将灰度图像 <code>I</code> 中的强度值映射到 <code>J</code> 中的新值。使用此语法时，<code>imadjust</code> 对所有像素值中最低的 1%  和最高的 1% 进行饱和处理。该函数将饱和界限之间的像素值线性映射到 0 和 1 之间的值。此运算可提高输出图像 <code>J</code> 的对比度。
+此语法等效于 imadjust(I,stretchlim(I))。<br />
+<a id="function2"></a>
+<a href="#Q6">J</a>  = imadjust(<a href="#Q1">I</a>, <a href="#Q3">[low_in high_in]</a>) 将 <code>I</code> 中的强度值映射到 <code>J</code> 中的新值，以使 low_in 和 high_in 之间的值线性映射到 0 到 1 之间的值。<br />
+<a id="function3"></a>
+<a href="#Q6">J</a>  = imadjust(<a href="#Q1">I</a>, <a href="#Q3">[low_in high_in]</a>,<a href="#Q4"> [low_out high_out]</a>)  将 <code>I</code> 中的强度值映射到 <code>J</code> 中的新值，以使low_in和high_in之间的值线性映射到 low_out到high_out 之间的值。<br />
+<a id="function4"></a>
+<a href="#Q6">J</a>  = imadjust(<a href="#Q1">I</a>, <a href="#Q3">[low_in high_in]</a>, <a href="#Q4"> [low_out high_out]</a>, <a href="#Q5">gamma</a>) 将 <code>I</code> 中的强度值映射到 <code>J</code> 中的新值，其中 <code>gamma</code> 指定描述 <code>I</code> 和 <code>J</code> 中的值之间关系的曲线形状。<br />
+<a id="function5"></a>
+<a href="#Q6">J</a>  = imadjust(<a href="#Q2">RGB</a>, <a href="#Q3">[low_in high_in]</a>,___) 将真彩色图像 <code>RGB</code> 中的值映射到 <code>J</code> 中的新值。您可以为每个颜色通道应用相同的映射或互不相同的映射。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> I — 灰度图像</strong>  <br />
+m×n 数值矩阵  </p>
+<p>灰度图像，指定为 m×n 数值矩阵。如果 <code>I</code> 是整数数据类型，则 <code>imadjust</code> 先使用 <code>im2double</code> 将像素值重新缩放到范围 [0, 1]。在通过映射输入和输出对比度范围之间的值来调整对比度后，该函数会将输出图像转换回 <code>I</code> 的原始数据类型。</p>
+<p><strong>数据类型:</strong> <code>uint8</code></p>
+<p><strong><a id="Q2"></a> RGB — 真彩色图像</strong><br />
+m×n×3 数值数组  </p>
+<p>真彩色图像，指定为 m×n×3 数值数组。如果 RGB 是整数数据类型，则 <code>imadjust</code> 先使用 <code>im2double</code> 将像素值重新缩放到范围 [0, 1]。在通过映射输入和输出对比度范围之间的值来调整对比度后，该函数会将输出图像转换回 RGB 的原始数据类型。  </p>
+<p><strong>数据类型:</strong> <code>double</code> | <code>uint8</code> | <code>logical</code></p>
+<p><strong><a id="Q3"></a>[low_in high_in] — 输入图像的对比度范围</strong><br />
+二元素数值向量 | 2×3 数值矩阵  </p>
+<p>输入图像的对比度范围，指定为下表中的值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>输入类型</strong></th>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">灰度图像</td>
+<td style="text-align: left;">[low_in high_in] 形式的 1×2 向量</td>
+<td style="text-align: left;">指定要映射到输出图像中的值的输入灰度图像的对比度范围。值必须在 [0, 1.0] 范围内。值 low_in 必须小于值 high_in。</td>
+</tr>
+<tr>
+<td style="text-align: left;">灰度图像</td>
+<td style="text-align: left;">未指定</td>
+<td style="text-align: left;">如果使用语法 imadjust(I) 仅指定一个输入参量，则该函数将根据输入图像值设置 low_in 和 high_in，以便对所有像素值中最低的 1% 和最高的 1% 进行饱和处理。</td>
+</tr>
+<tr>
+<td style="text-align: left;">RGB 图像或颜色图</td>
+<td style="text-align: left;">[low_RGB_triplet; high_RGB_triplet] 形式的 2×3 矩阵</td>
+<td style="text-align: left;">指定要映射到输出图像或颜色图中的值的输入 RGB 图像或颜色图的对比度范围。数组中的每行均为一个 RGB 颜色三元组。值必须在 [0, 1] 范围内。值 low_RGB_triplet 必须小于值 high_RGB_triplet。</td>
+</tr>
+<tr>
+<td style="text-align: left;">RGB 图像或颜色图</td>
+<td style="text-align: left;">[low_in high_in] 形式的 1×2 向量</td>
+<td style="text-align: left;">指定要映射到输出图像中的值的输入 <code>RGB</code> 图像的对比度范围。每个值必须在 [0, 1.0] 范围内。值 low_in 必须小于值 high_in。如果您对 <code>RGB</code> 图像或颜色图指定 1×2 向量，则 imadjust 会对每个颜色平面或通道应用相同的调整。</td>
+</tr>
+<tr>
+<td style="text-align: left;">所有类型</td>
+<td style="text-align: left;">[]</td>
+<td style="text-align: left;">如果您指定空矩阵 ([])，则 <code>imadjust</code> 使用范围 [0, 1]。</td>
+</tr>
+</tbody>
+</table>
+<p><code>imadjust</code> 函数裁剪低于 low_in 和高于 high_in 的值。低于 low_in 的值映射到 low_out，高于 high_in 的值映射到 high_out。</p>
+<p><strong>数据类型:</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="Q4"></a> [low_out high_out] — 输出图像的对比度范围</strong><br />
+[0 1] (默认) | 二元素数值向量 | 2×3 数值矩阵</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>输入类型</strong></th>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">灰度图像</td>
+<td style="text-align: left;">[low_in high_in] 形式的 1×2 向量</td>
+<td style="text-align: left;">指定输出灰度图像的对比度范围。每个值必须在 [0, 1] 范围内。</td>
+</tr>
+<tr>
+<td style="text-align: left;">RGB 图像或颜色图</td>
+<td style="text-align: left;">[low_RGB_triplet; high_RGB_triplet] 形式的 2×3 矩阵</td>
+<td style="text-align: left;">指定输出 RGB 图像或颜色图的对比度范围。数组中的每行均为一个 RGB 颜色三元组。值必须在 [0, 1] 范围内。</td>
+</tr>
+<tr>
+<td style="text-align: left;">RGB 图像或颜色图</td>
+<td style="text-align: left;">[low_in high_in] 形式的 1×2 向量</td>
+<td style="text-align: left;">指定输出图像中的对比度范围。每个值必须在 [0, 1] 范围内。如果您对 RGB 图像或颜色图指定 1×2 向量，则 imadjust 会对每个平面或通道应用相同的调整。</td>
+</tr>
+<tr>
+<td style="text-align: left;">所有类型</td>
+<td style="text-align: left;">未指定或 []</td>
+<td style="text-align: left;">如果不指定输出对比度范围，或指定了空矩阵 ([])，则 imadjust 使用默认范围 [0, 1]。</td>
+</tr>
+</tbody>
+</table>
+<p>如果 high_out 小于 low_out，则 <code>imadjust</code> 反转输出图像，就像照片底片一样。</p>
+<p><strong>数据类型:</strong> <code>single</code> | <code>double</code></p>
+<p><strong><a id="Q5"></a> gamma — 描述输入和输出值关系的曲线形状</strong><br />
+1 (默认) | 非负标量 | 1×3 数值向量  </p>
+<p>描述输入和输出值关系的曲线形状，指定为非负标量或 1×3 数值向量。</p>
+<p>如果 <code>gamma</code> 小于 1，则 <code>imadjust</code> 会对映射加权，使之偏向更高（更亮）输出值。</p>
+<p>如果 <code>gamma</code> 大于 1，则 <code>imadjust</code> 会对映射加权，使之偏向更低（更暗）输出值。</p>
+<p>如果 <code>gamma</code> 是 1×3 向量，则 <code>imadjust</code> 会对每个颜色分量或通道分别应用不同的 <code>gamma</code>。</p>
+<p>如果省略该参量，则 <code>gamma</code> 取默认值 1（线性映射）。
+此图说明了在 <code>gamma</code> 小于 1、等于 1 和大于 1 时变换曲线的形状。在每个图中，x 轴表示输入图像中的强度值，y 轴表示输出图像中的强度值。  </p>
+<p><strong>数据类型:</strong> <code>double</code></p>
+<h3>输出参数</h3>
+<p><strong><a id="Q6"></a>J — 调整后的图像</strong><br />
+灰度图像 | RGB 图像  </p>
+<p>调整后的图像，以灰度或 RGB 图像形式返回。<code>J</code> 的大小和类与输入灰度图像 <code>I</code> 或真彩色图像 RGB 相同。</p>
+<p><strong>数据类型:</strong> <code>single</code> | <code>double</code> | <code>uint8</code> </p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../brighten/brighten.html">brighten</a> | <a
+href="../histeq/histeq.html">histeq</a> | <a 
+href="../stretchlim/stretchlim.html">stretchlim</a> | <a 
+href="../lin2rgb/lin2rgb.html">lin2rgb</a> | <a 
+href="../rgb2lin/rgb2lin.html">rgb2lin</a> </p>
+</body>
+</html>

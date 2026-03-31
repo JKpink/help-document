@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>imdilate</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>imdilate</h2>
+<p>膨胀</p>
+<h2>简介</h2>
+<p><a href="#function1"> <code>J = imdilate(I, SE)</code></a><br />
+<a href="#function2"> <code>J = imdilate(I, nhood)</code></a><br />
+<a href="#function3"> <code>J = imdilate(___, packopt)</code></a><br />
+<a href="#function4"> <code>J = imdilate(___, shape)</code></a> </p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q7">J</a> = imdilate(<a href="#Q1">I</a>, <a href="#Q2">SE</a>) 使用结构元素 <code>SE</code> 膨胀灰度、二值或压缩二值图像 <code>I</code>。<br />
+<a id="function2"></a>
+<a href="#Q7">J</a>  = imdilate(<a href="#Q1">I</a>, <a href="#Q3">nhood</a>) 膨胀图像 <code>I</code>，其中 <code>nhood</code> 是由指定结构元素邻域的 0 和 1 组成的矩阵。此语法等效于 imdilate(I, strel(nhood))。<br />
+<a id="function3"></a>
+<a href="#Q7">J</a>  = imdilate(_, <a href="#Q4">packopt</a>) 指定输入图像 <code>I</code> 是否为压缩二值图像。<br />
+<a id="function4"></a>
+<a href="#Q7">J</a>  = imdilate(_, <a href="#Q6">shape</a>) 指定输出图像的大小。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q1"></a> I — 输入图像</strong><br />
+灰度图像 | 二值图像 | 压缩二值图像</p>
+<p>输入图像，指定为灰度图像、二值图像或任意维度的压缩二值图像。</p>
+<p><strong>数据类型</strong>： <code>single</code> | <code>double</code> | <code>uint8</code> | <code>uint16</code> | <code>int8</code> | <code>int16</code> | <code>logical</code></p>
+<p><strong><a id="Q2"></a> SE — 结构元素</strong><br />
+strel 对象 | offsetstrel 对象 | strel 对象的数组 | offsetstrel 对象的数组</p>
+<p>结构元素，指定为标量 strel 对象或 offsetstrel 对象。<code>SE</code> 也可以是 strel 对象或 offsetstrel 对象的数组，在这种情况下，<code>imerode</code> 连续使用每个结构元素对输入图像执行多次腐蚀。<code>imerode</code> 对除数据类型为 <code>logical</code> 的图像之外的所有图像执行灰度腐蚀。在这种情况下，结构元素必须为平面结构，并且 <code>imerode</code> 执行二值腐蚀。</p>
+<p><strong><a id="Q3"></a> nhood — 结构元素邻域</strong><br />
+0 和 1 组成的矩阵</p>
+<p>结构元素邻域，指定为 0 和 1 组成的矩阵。</p>
+<p><strong>示例</strong>：[0 1 0; 1 1 1; 0 1 0]</p>
+<p><strong><a id="Q4"></a> packopt — 压缩二值图像的指示符</strong><br />
+'notpacked' (默认) | 'packed'</p>
+<p>压缩二值图像的指示符，指定为下列值之一。</p>
+<p>| <strong>值</strong> | <strong>描述</strong> |
+|:-|:-|:-|
+| 'notpacked' | <a href="#Q1">I</a> 被视为普通数组。 |
+| 'ispacked' | I 被视为由 bwpack 生成的压缩二值图像。I 必须为二维 uint32 数组，SE 必须为平面二维结构元素。 <a href="#Q6">shape</a> 的值必须为 'same'。 |</p>
+<p><strong>数据类型</strong>： <code>char</code> | <code>string</code> </p>
+<p><strong><a id="Q5"></a> m — 原始未压缩图像的行维度</strong><br />
+正整数</p>
+<p>原始未压缩图像的行维度，指定为正整数。</p>
+<p><strong>数据类型</strong>： <code>double</code> </p>
+<p><strong><a id="Q6"></a> shape — 输出图像的大小</strong><br />
+'same' (默认) | 'full'</p>
+<p>输出图像的大小，指定为下列值之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>值</strong></th>
+<th style="text-align: left;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">'same'</td>
+<td style="text-align: left;">输出图像与输入图像大小相同。如果 <a href="#Q4">packopt</a> 的值为 'ispacked'，则 shape 必须为 'same'。</td>
+</tr>
+<tr>
+<td style="text-align: left;">'full'</td>
+<td style="text-align: left;">计算完全膨胀。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型</strong>： <code>char</code> | <code>string</code> </p>
+<h3>输出参数</h3>
+<p><strong><a id="Q6"></a> J — 膨胀的图像</strong><br />
+灰度图像 | 二值图像 | 压缩二值图像</p>
+<p>膨胀的图像，以灰度图像、二值图像或压缩二值图像形式返回。如果输入图像 <code>I</code> 是压缩二值图像，则 <code>J</code> 也是压缩二值图像。<code>J</code> 与 <code>I</code> 具有相同的数据类型。</p>
+<h2>详细信息</h2>
+<p>二值膨胀
+用 B 对 A 执行二值膨胀（记为 A⊕B）的过程定义为如下集合运算：
+A⊕B={z|(ˆB)<sub>z</sub>∩A≠∅},
+其中 ˆB是结构元素 B 的反射。换句话说，它是满足以下条件的像素位置 z 的集合：当反射的结构元素平移至位置 z 时与 A 中的前景像素存在重叠。注意，一些应用使用的膨胀定义不会反射结构元素。
+有关二值膨胀的详细信息，请参阅 <a href="#R1">[1]</a>。</p>
+<p>灰度膨胀
+在一般形式的灰度膨胀中，结构元素有高度。用 B(x, y) 对 A(x, y) 执行灰度膨胀的过程定义为：
+(A⊕B)(x, y)=max{A(x − x′, y − y′)+B(x′, y′)∣(x′, y′)∈D<sub>B</sub>},
+其中 D<sub>B</sub> 是结构元素 B 的域，A(x, y) 假定为图像域外的 –∞。请注意，一些应用程序使用公式 A(x + x′, y + y′) 而不是 A(x – x′, y – y′) 来定义灰度膨胀。
+要创建具有非零高度值的结构元素，请使用语法 strel(nhood, height)，其中 height 给出高度值，nhood 对应于结构元素域 D<sub>B</sub>。
+灰度膨胀最常使用平面结构元素 (B(x,y) = 0)。使用这种结构元素的灰度膨胀等效于使用局部最大值运算符：
+(A⊕B)(x, y)=max{A(x − x′, y − y′)∣(x′, y′)∈D<sub>B</sub>}.
+除了 strel(nhood, height)、strel('arbitrary', nhood, height) 和 strel('ball', ___) 之外，所有 strel 语法都生成平面结构元素。</p>
+<h2>提示</h2>
+<ul>
+<li>如果图像 <code>I</code> 的维度大于结构元素的维度，则 <code>imdilate</code> 函数会将相同的形态学膨胀应用于较高维度上的所有平面。
+您可以使用此行为对 RGB 图像执行形态学膨胀。为 RGB 图像指定二维结构元素，以便对每个颜色通道分别执行运算。</li>
+<li>当指定结构元素邻域时，<code>imdilate</code> 通过 floor((size(nhood) + 1) / 2) 确定 <code>nhood</code> 的中心元素。</li>
+<li><code>imdilate</code> 自动利用结构元素对象的分解（如果存在分解）。此外，当使用具有分解的结构元素对象执行二值膨胀时，<code>imdilate</code> 会自动使用二值图像压缩来加速膨胀<a href="#R1">[3]</a>。</li>
+</ul>
+<h2><a id="R1"></a> 参考文献</h2>
+<p>[1] Gonzalez Rafael C, Richard E Woods, Steven L Eddins. Digital Image Processing Using MATLAB. Third edition. Knoxville: Gatesmark Publishing, 2020.<br />
+[2] Haralick Robert M, and Linda G Shapiro. Computer and Robot Vision. 1st ed. USA: Addison-Wesley Longman Publishing, 1992.<br />
+[3] Boomgaard, Rein van den, Richard van Balen. Methods for Fast Morphological Image Transforms Using Bitmapped Binary Images.CVGIP: Graphical Models and Image Processing, 54(3): 252–58, May 1, 1992.</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../imclose/imclose.html">imclose</a> | <a 
+href="../imerode/imerode.html">imerode</a> | <a 
+href="../imopen/imopen.html">imopen</a> </p>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>edge</title>
+    <style>
+        
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Times New Roman", "宋体", arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+
+    </style>
+    
+</head>
+<body>
+    <h2>edge</h2>
+<p>边缘提取</p>
+<h2>简介</h2>
+<p><a href="#function1"><code>BW = edge(I)</code></a><br />
+<a href="#function2"><code>BW = edge(I, method)</code></a><br />
+<a href="#function3"><code>BW = edge(I, method, threshold)</code></a><br />
+<a href="#function4"><code>BW = edge(I, method, threshold, direction)</code></a><br />
+<a href="#function5"><code>BW = edge(___, "thinning")</code></a><br />
+<a href="#function6"><code>BW = edge(I, method, threshold, sigma)</code></a><br />
+<a href="#function7"><code>BW = edge(I, method, threshold, h)</code></a></p>
+<h2>用法</h2>
+<p><a id="function1"></a>
+<a href="#Q1">BW</a> = edge(<a href="#Q2">I</a>) 返回二值图像 <code>BW</code>，其中的值 1 对应于二维灰度图像或二值图像 <code>I</code> 中函数找到边缘的位置，值 0 对应于其他位置。<br />
+<a id="function2"></a>
+<a href="#Q1">BW</a> = edge(<a href="#Q2">I</a>, <a href="#Q3">method</a>) 使用 method 指定的边缘检测算法检测图像 <code>I</code> 中的边缘。<br />
+<a id="function3"></a>
+<a href="#Q1">BW</a> = edge(<a href="#Q2">I</a>, <a href="#Q3">method</a>, <a href="#Q4">threshold</a>) 返回强度高于 <code>threshold</code> 的所有边缘。<br />
+<a id="function4"></a>
+<a href="#Q1">BW</a> = edge(<a href="#Q2">I</a>, <a href="#Q3">method</a>, <a href="#Q4">threshold</a>, <a href="#Q5">direction</a>) 指定要检测的边缘的方向， "Sobel"、"Prewitt" 方法可以检测垂直方向和 / 或水平方向的边缘，"Roberts" 方法可以检测与水平方向成 45 度角和 / 或 135 度角的边缘。<br />
+<a id="function5"></a>
+<a href="#Q1">BW</a> = edge(___, "thinning") 开启边缘细化阶段。<br />
+<a id="function6"></a>
+<a href="#Q1">BW</a> = edge(<a href="#Q2">I</a>, <a href="#Q3">method</a>, <a href="#Q4">threshold</a>, <a href="#Q6">sigma</a>) 指定 <code>sigma</code>，即滤波器的标准差。<br />
+<a id="function7"></a> <a href="#Q1">BW</a> = edge(<a href="#Q2">I</a>,<a href="#Q3">method</a>,<a href="#Q4">threshold</a>,<a href="#Q7">h</a>) 使用 "zerocross" 方法和指定的滤波器 h 检测边缘。仅当 method 是 "zerocross" 时，此语法才有效。</p>
+<h2>参数说明</h2>
+<h3>输入参数</h3>
+<p><strong><a id="Q2"></a> I — 输入图像</strong><br />
+二维灰度图像 | 二维二值图像</p>
+<p>输入图像，指定为二维灰度图像或二维二值图像。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> |  <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p>
+<p><strong><a id="Q3"></a> method — 边缘检测方法</strong><br />
+"Sobel" (默认) | "Prewitt" | "Roberts" | "log" | "zerocross" | "Canny" </p>
+<p>边缘检测方法，指定为下列方法之一。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>方法</strong></th>
+<th style="text-align: center;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">"Sobel"</td>
+<td style="text-align: center;">使用导数的索贝尔逼近，通过寻找图像 <code>I</code> 的梯度最大的那些点来查找边缘。</td>
+</tr>
+<tr>
+<td style="text-align: center;">"Prewitt"</td>
+<td style="text-align: center;">使用导数的普瑞维特逼近，通过寻找 <code>I</code> 的梯度最大的那些点来查找边缘。</td>
+</tr>
+<tr>
+<td style="text-align: center;">"Roberts"</td>
+<td style="text-align: center;">使用导数的罗伯茨逼近，通过寻找I的梯度最大的那些点来查找边缘。</td>
+</tr>
+<tr>
+<td style="text-align: center;">"log"</td>
+<td style="text-align: center;">使用高斯拉普拉斯 (LoG) 滤波器对I进行滤波后，通过寻找过零点来查找边缘。</td>
+</tr>
+<tr>
+<td style="text-align: center;">"Canny"</td>
+<td style="text-align: center;">通过寻找 <code>I</code> 的梯度的局部最大值来查找边缘。<code>edge</code> 函数使用高斯滤波器的导数计算梯度。此方法使用双阈值来检测强边缘和弱边缘，如果弱边缘与强边缘连通，则将弱边缘包含到输出中。通过使用双阈值，坎尼方法相对其他方法不易受噪声干扰，更可能检测到真正的弱边缘。</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">"zerocross"</td>
+<td style="text-align: center;">使用指定的滤波器 <code>h</code> 对 <code>I</code> 进行滤波后，通过寻找过零点来查找边缘。</td>
+</tr>
+</tbody>
+</table>
+<p><strong><a id="Q4"></a> threshold — 敏感度阈值</strong><br />
+非负标量 | 二元素向量 | [ ]</p>
+<p>敏感度阈值，指定为非负标量（对于一般 method）或二元素向量（对于 "Canny" 方法）。edge 忽略所有强度不大于 threshold 的边缘。
+- 如果不指定 threshold 或指定空数组 ([])，则 edge 会自动根据输入数据通过启发式方法选择一个或多个值。更改阈值的最佳方法是运行一次函数，将计算出的阈值作为 <code>threshOut</code> 参量输出。然后，从计算出的阈值开始，分别增大或减小阈值以检测更少或更多边缘像素。
+- 对于 "Sobel"、"Prewitt" 和 "Roberts" 方法，该函数使用阈值来确定要被视为边缘的梯度幅值。使用阈值 0 会选择图像中的所有边缘，即使其强度非常低也是如此。
+- 对于 "log" 方法，该函数使用阈值来确定要被视为边缘的过零的幅值。换言之，当采用高阈值时，较大的过零跳跃被视为边缘，而较小的过零跳跃不是。如果指定阈值为 0，则输出图像具有闭合轮廓，因为它包括输入图像中的每个过零点。
+- "Canny" 方法使用两个梯度阈值：具有低边缘敏感度的上阈值和具有高边缘敏感度的下阈值。边缘检测在低敏感度结果的基础上进行扩展，以包含高敏感度结果中连通的边缘像素。这有助于填补检测到的边缘中的间断。函数忽略边缘强度低于下阈值的所有边缘，保留边缘强度高于上阈值的所有边缘。您可以将 threshold 指定为 [low high] 形式的二元素向量，其中 low 和 high 值在范围 [0, 1] 内。您还可以将 threshold 指定为数值标量，edge 将其作为上阈值赋值。在这种情况下，edge 将下阈值计算为 threshold*0.4。</p>
+<p><strong>数据类型：</strong> <code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code></p>
+<p><strong><a id="Q5"></a> direction — 要检测的边缘的方向</strong>  </p>
+<p>要检测的边缘的方向，指定为"horizontal"、"vertical"或"both"。仅当method是 "Sobel"、"Prewitt"或"Roberts"时，direction参量才有效。</p>
+<p><strong>数据类型：</strong> <code>char</code> | <code>string</code></p>
+<p><strong><a id="Q7"></a> h —— 滤波器</strong>
+数值矩阵
+滤波器，指定为数值矩阵。仅 "zerocross" 方法支持 h 参量。</p>
+<p><strong>数据类型</strong>:<code>double</code></p>
+<p><strong><a id="Q6"></a> sigma — 滤波器的标准差</strong><br />
+数值标量</p>
+<p>滤波器的标准差，指定为数值标量。仅 "Canny" 和 "log" 方法支持 sigma 参量。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>方法</strong></th>
+<th style="text-align: center;"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">"Canny"</td>
+<td style="text-align: center;">标量值，指定高斯滤波器标准差。默认值为 sqrt(2)。edge 根据 sigma 自动选择滤波器的大小。</td>
+</tr>
+<tr>
+<td style="text-align: center;">"log"（高斯拉普拉斯）</td>
+<td style="text-align: center;">标量值，指定高斯拉普拉斯滤波器标准差。默认值为 2。滤波器的大小为 n×n，其中 n=ceil(sigma<em>3)</em>2+1。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据类型：</strong> <code>double</code></p>
+<h3>输出参量</h3>
+<p><strong><a id="Q1"></a> BW — 输出二值图像</strong><br />
+逻辑数组</p>
+<p>输出二值图像，以与 <a href="#Q2">I</a> 大小相同的逻辑数组形式返回，值 1 对应于 <code>I</code> 中函数找到边缘的位置，值 0 对应于其他位置。</p>
+<p><strong><a id="Q8"></a> threshOut —— 计算的阈值</strong>
+数值标量 | 二元素向量 </p>
+<p>在运算中使用的计算的阈值，以二元素向量形式（对于 "Canny" 方法）或数值标量形式（对于所有其他边缘检测方法）返回。</p>
+<h2>参考</h2>
+<p>[1] Canny J. A computational approach to edge detection. IEEE Transactions on Pattern Analysis and Machine Intelligence, 1986, 8(6): 679-698.</p>
+<p>[2] Lim J S. Two-dimensional signal and image processing. Englewood Cliffs, NJ: Prentice Hall, 1990: 478-488.</p>
+<p>[3] Parker J R. Algorithms for image processing and computer vision. New York: John Wiley &amp; Sons, Inc., 1997: 23-29.</p>
+<h2>版本历史</h2>
+<p>在北太天元图像处理工具箱 V1.0 推出</p>
+<h2>相关主题</h2>
+<p><a href="../edge3/edge3.html">edge3</a> | <a 
+href="../fspecial/fspecial.html">fspecial</a> | <a 
+href="../imgradient/imgradient.html">imgradient</a> | <a 
+href="../imgradientxy/imgradientxy.html">imgradientxy</a> </p>
+</body>
+</html>
